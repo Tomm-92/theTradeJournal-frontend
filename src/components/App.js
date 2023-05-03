@@ -8,6 +8,7 @@ import AddTradeEntry from "./AddTradeEntry";
 import MyTrades from "./MyTrades";
 import Signin from "./auth/Signin.jsx";
 import SignUp from "./auth/SignUp.jsx";
+import AuthDetails from "./authDetails";
 
 const App = () => {
   const [data, setData] = useState("");
@@ -25,6 +26,7 @@ const App = () => {
       <div className="">
         <div>Hello {data}</div>
         <NavBar />
+        <AuthDetails />
         <Routes>
           <Route
             path="/"
