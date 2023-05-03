@@ -6,7 +6,8 @@ import NavBar from "./NavBar";
 import LogIn from "./LogIn";
 import AddTradeEntry from "./AddTradeEntry";
 import MyTrades from "./MyTrades";
-import SignUp from "./SignUp";
+import Signin from "./auth/Signin.jsx";
+import SignUp from "./auth/SignUp.jsx";
 
 const App = () => {
   const [data, setData] = useState("");
@@ -25,7 +26,14 @@ const App = () => {
         <div>Hello {data}</div>
         <NavBar />
         <Routes>
-          <Route path="/" element={<LogIn />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Signin />
+              </>
+            }
+          />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/add-trade-entry" element={<AddTradeEntry />} />
           <Route path="/my-trades" element={<MyTrades />} />
