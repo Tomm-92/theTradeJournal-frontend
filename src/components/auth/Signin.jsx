@@ -1,6 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
+import logo from "../../images/logo.png";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -20,6 +22,7 @@ const SignIn = () => {
   return (
     <div className="sign-in-container">
       <form onSubmit={signIn}>
+      <img src={logo} alt="app-logo" />
         <h1>Log In to your Account</h1>
         <input
           type="email"
@@ -35,6 +38,18 @@ const SignIn = () => {
         ></input>
         <button type="submit">Log In</button>
       </form>
+      <Link to="/sign-up">Not registered? Sign up here </Link>
+      <div>
+        <a href="https://twitter.com/" alt="twitter">
+          Twitter
+        </a>
+        <a href="https://facebook.com/" alt="Facebook">
+          Facebook
+        </a>
+        <a href="https://instagram.com/" alt="Instagram">
+          Instagram
+        </a>
+      </div>
     </div>
   );
 };
