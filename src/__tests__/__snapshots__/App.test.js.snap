@@ -2,8 +2,65 @@
 
 exports[`App renders correctly 1`] = `
 <DocumentFragment>
-  <div>
-    Hello
+  <div
+    class=""
+  >
+    <div>
+      Hello 
+    </div>
+    <div
+      class="sign-in-container"
+    >
+      <form>
+        <img
+          alt="app-logo"
+          src="logo.png"
+        />
+        <h1>
+          Log In to your Account
+        </h1>
+        <input
+          placeholder="Enter your email"
+          type="email"
+          value=""
+        />
+        <input
+          placeholder="Enter your password"
+          type="password"
+          value=""
+        />
+        <button
+          type="submit"
+        >
+          Log In
+        </button>
+      </form>
+      <a
+        href="/sign-up"
+      >
+        Not registered? Sign up here 
+      </a>
+      <div>
+        <a
+          alt="twitter"
+          href="https://twitter.com/"
+        >
+          Twitter
+        </a>
+        <a
+          alt="Facebook"
+          href="https://facebook.com/"
+        >
+          Facebook
+        </a>
+        <a
+          alt="Instagram"
+          href="https://instagram.com/"
+        >
+          Instagram
+        </a>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

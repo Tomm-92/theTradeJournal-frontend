@@ -22,7 +22,7 @@ const SignIn = () => {
   return (
     <div className="sign-in-container">
       <form onSubmit={signIn}>
-      <img src={logo} alt="app-logo" />
+        <img src={logo} alt="app-logo" />
         <h1>Log In to your Account</h1>
         <input
           type="email"
