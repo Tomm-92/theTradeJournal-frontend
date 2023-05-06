@@ -1,3 +1,32 @@
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.delete-button {
+    background-color: #27ae60;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-button {
+    background-color: #34495e;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-button:hover,
+.delete-button:hover {
+    opacity: 0.8;
+}
+
 .card {
     background-color: #f8f9fa;
     border: 1px solid #ced4da;
@@ -27,10 +56,12 @@
 
 .trade-outcome-win {
     color: green;
+    font-weight: bold;
 }
 
-.trade-outcome-loss {
+.trade-outcome-lose {
     color: red;
+    font-weight: bold;
 }
 
 .entry-price {

@@ -17,8 +17,14 @@ const MyTrades = ({ trades }) => {
               {trade.trade_data_open}
             </h6>
             <p className="card-text">
-              Trade Outcome: <span className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}>{trade.trade_outcome}</span> | Trade Close Date: {trade.trade_close_date} | Entry Price: <span className="entry-price">{trade.entry_price}</span> | Exit Price: <span className="exit-price">{trade.exit_price}</span>
+              Trade Outcome: <span className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}>{trade.trade_outcome}</span> | Trade Close Date: {trade.trade_close_date} | Entry Price: 
+              <span className="entry-price">{trade.entry_price}</span> | Exit Price: 
+              <span className="exit-price">{trade.exit_price}</span>
             </p>
+            <div className="button-container">
+              <button className="update-button">Update</button>
+              <button className="delete-button">Delete</button>
+            </div>
           </div>
         </div>
       ))}
