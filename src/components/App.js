@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import Axios from "axios";
 import "../styles/app.css";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
@@ -11,22 +10,15 @@ import SignUp from "./auth/SignUp.jsx";
 import { auth } from "../firebase";
 
 const App = () => {
-  const [data, setData] = useState("");
   const [user, setUser] = useState(null);
-
-  const getData = async () => {
-    const response = await Axios.get("http://localhost:3000/getData");
-    setData(response.data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [userID, setUserID] = useState("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         setUser(firebaseUser);
+        setUserID(firebaseUser.uid);
+        console.log(firebaseUser.uid);
       } else {
         setUser(null);
       }
@@ -37,7 +29,7 @@ const App = () => {
     return (
       <Router>
         <div className="">
-          <div>Hello {data}</div>
+          <div>Hello</div>
           <Routes>
             <Route path="/" element={<Signin />} />
             <Route path="/sign-up" element={<SignUp />} />
@@ -49,11 +41,14 @@ const App = () => {
   return (
     <Router>
       <div className="">
-        <div>Hello {data}</div>
+        <div>Hello </div>
         <NavBar />
         <Routes>
           <Route path="/" element={<MyTrades />} />
-          <Route path="/add-trade-entry" element={<AddTradeEntry />} />
+          <Route
+            path="/add-trade-entry"
+            element={<AddTradeEntry userID={userID} />}
+          />
           <Route path="/my-trades" element={<MyTrades />} />
         </Routes>
       </div>
