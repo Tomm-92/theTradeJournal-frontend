@@ -13,14 +13,21 @@ import { auth } from "../firebase";
 const App = () => {
   const [data, setData] = useState("");
   const [user, setUser] = useState(null);
+  const [trades, setTrades] = useState("");
 
   const getData = async () => {
     const response = await Axios.get("http://localhost:3000/getData");
     setData(response.data);
   };
 
+  const getTrades = async () => {
+    const response = await Axios.get("http://localhost:3000/tradeHistory");
+    setTrades(response.data)
+  }
+
   useEffect(() => {
     getData();
+    getTrades();
   }, []);
 
   useEffect(() => {
@@ -51,12 +58,12 @@ const App = () => {
   return (
     <Router>
       <div className="">
-        <div>Hello {data}</div>
+        <div>Hello {trades.length > 0 && trades[0].id}</div>
         <NavBar />
         <Routes>
           <Route path="/" element={<MyTrades />} />
           <Route path="/add-trade-entry" element={<AddTradeEntry />} />
-          <Route path="/my-trades" element={<MyTrades />} />
+          <Route path="/my-trades" element={<MyTrades trades={trades} />} />
         </Routes>
       </div>
     </Router>

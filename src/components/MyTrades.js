@@ -1,7 +1,34 @@
 import React from "react";
+import "../styles/mytrades.css";
 
-const MyTrades = () => {
+const MyTrades = ({ trades }) => {
+
+  if(!trades || trades.length === 0){
+    return null;
+  }
   return (
+    <>
+    <div>
+      {trades.map((trade) => (
+        <div className="card" key={trade.id}>
+          <div className="card-body">
+            <h5 className="card-title">{trade.currency_crypto}</h5>
+            <h6 className="card-subtitle">
+              {trade.trade_data_open}
+            </h6>
+            <p className="card-text">
+              Trade Outcome: <span className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}>{trade.trade_outcome}</span> | Trade Close Date: {trade.trade_close_date} | Entry Price: 
+              <span className="entry-price">{trade.entry_price}</span> | Exit Price: 
+              <span className="exit-price">{trade.exit_price}</span>
+            </p>
+            <div className="button-container">
+              <button className="update-button">Update</button>
+              <button className="delete-button">Delete</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
     <div>
       My Trades Page
       <div>
@@ -16,6 +43,7 @@ const MyTrades = () => {
         </a>
       </div>
     </div>
+    </>
   );
 };
 
