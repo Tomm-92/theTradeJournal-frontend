@@ -40,6 +40,43 @@ const App = () => {
     });
   }, []);
 
+  const handleEdit = (tradeId) => {
+    const trade = trades.find((trade) => trade.id === tradeId);
+    console.log("Editing trade:", trade);
+  };
+
+  const handleSaveUpdate = async (tradeId, updatedData) => {
+    try {
+      await Axios.patch(`http://localhost:3000/tradeHistory/${tradeId}`, updatedData);
+
+      const updatedTrades = trades.map((trade) => {
+        if(trade.id === tradeId) {
+          return { ...trade, ...updatedData};
+        }
+        return trade;
+      });
+      setTrades(updatedTrades);
+
+      console.log("Trade updated successfully");
+    } catch (error) {
+      console.log("Error updating trade:", error);
+      console.log(tradeId);
+      console.log(updatedData);
+    }
+  };
+
+  const handleDelete = async (tradeId) => {
+    try {
+      await Axios.delete(`http://localhost:3000/tradehistory/${tradeId}`);
+      const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
+      setTrades(updatedTrades);
+
+      console.log("Trade deleted successfully");
+    } catch (error) {
+      console.log("Error deleting trade:", error);
+    }
+  };
+
   if (!user)
     return (
       <Router>
@@ -63,7 +100,16 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MyTrades />} />
           <Route path="/add-trade-entry" element={<AddTradeEntry />} />
-          <Route path="/my-trades" element={<MyTrades trades={trades} />} />
+          <Route path="/my-trades" 
+            element={
+              <MyTrades
+                trades={trades}
+                handleEdit={handleEdit}
+                handleSaveUpdate={handleSaveUpdate}
+                handleDelete={handleDelete}
+                />
+             }
+            />
         </Routes>
       </div>
     </Router>
