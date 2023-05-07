@@ -40,6 +40,8 @@ const App = () => {
           <div>Hello {data}</div>
           <Routes>
             <Route path="/" element={<Signin />} />
+            <Route path="/add-trade-entry" element={<Signin />} />
+            <Route path="/my-trades" element={<Signin />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>
         </div>

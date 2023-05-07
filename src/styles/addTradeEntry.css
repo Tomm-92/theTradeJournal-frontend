@@ -1,0 +1,40 @@
+.add-trade {
+  padding: 0px;
+  color: black;
+  border: 2px solid black;
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 7.5%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+input {
+  font-family: "Roboto Mono", monospace;
+  border-radius: 4%;
+  border: solid 1px black;
+  text-align: center;
+}
+
+label {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 7fr;
+  width: 200px;
+  margin: auto;
+  font-size: large;
+  font-weight: bold;
+}
+
+.add-trade__submit-button {
+  color: white;
+  background-color: grey;
+  border-radius: 10%;
+  font-family: "Roboto Mono", monospace;
+  border: black;
+  margin-bottom: 20px;
+  font-size: x-large;
+  min-width: 10%;
+}
