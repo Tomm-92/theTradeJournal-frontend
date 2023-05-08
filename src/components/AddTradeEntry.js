@@ -3,7 +3,7 @@ import axios from "axios";
 import Alert from "./Alert";
 import "../styles/addTradeEntry.css";
 
-const AddTradeEntry = () => {
+const AddTradeEntry = ({ userID }) => {
   const initialState = {
     fields: {
       currency_crypto: "",
@@ -25,12 +25,19 @@ const AddTradeEntry = () => {
 
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
+  const [trades, setTrades] = useState("");
 
   const handleAddTrade = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/tradeHistory/", fields)
-      .then((response) => {
+      .post("http://localhost:3000/tradeHistory/", {
+        ...fields,
+        fireBaseId: userID,
+      })
+      .then(({ data }) => {
+        setTrades(data.id);
+      })
+      .then(() => {
         setAlert({
           message: "Trade Added",
           isSuccess: true,

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import Axios from "axios";
 import "../styles/app.css";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
@@ -11,7 +10,6 @@ import SignUp from "./auth/SignUp.jsx";
 import { auth } from "../firebase";
 
 const App = () => {
-  const [data, setData] = useState("");
   const [user, setUser] = useState(null);
   const [trades, setTrades] = useState("");
 
@@ -34,6 +32,7 @@ const App = () => {
     onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         setUser(firebaseUser);
+        setUserID(firebaseUser.uid);
       } else {
         setUser(null);
       }
@@ -84,7 +83,7 @@ const App = () => {
     return (
       <Router>
         <div className="">
-          <div>Hello {data}</div>
+          <div>Hello</div>
           <Routes>
             <Route path="/" element={<Signin />} />
             <Route path="/add-trade-entry" element={<Signin />} />
@@ -102,7 +101,10 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<MyTrades />} />
-          <Route path="/add-trade-entry" element={<AddTradeEntry />} />
+          <Route
+            path="/add-trade-entry"
+            element={<AddTradeEntry userID={userID} />}
+          />
           <Route
             path="/my-trades"
             element={
