@@ -33,27 +33,34 @@ const AddTradeEntry = ({ userID }) => {
       .post("http://localhost:3000/tradeHistory/", fields)
       .then(({ data }) => {
         setTrades(data.id);
-        console.log(trades);
-      });
-  };
-
-  if (handleAddTrade) {
-    axios
-      .patch(`http://localhost:3000/tradeHistory/${trades}`, {
-        fireBaseId: `${userID}`,
       })
-      .then(({ data }) => {
-        console.log({ data });
-      });
-  }
+      .then(() => {
+        setAlert({
+          message: "Trade Added",
+          isSuccess: true,
+        });
+      })
+      .catch(() =>
+        setAlert({
+          message: "Server error. Please come back later",
+          isSuccess: false,
+        })
+      );
+  };
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
+  if (handleAddTrade) {
+    axios.patch(`http://localhost:3000/tradeHistory/${trades}`, {
+      fireBaseId: `${userID}`,
+    });
+  }
+
   return (
     <div className="add-trade">
-      Add Trade Entry Page {userID}
+      Add Trade Entry Page
       <form onSubmit={handleAddTrade}>
         <Alert message={alert.message} success={alert.isSuccess} />
         <label>

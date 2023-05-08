@@ -18,7 +18,6 @@ const App = () => {
       if (firebaseUser) {
         setUser(firebaseUser);
         setUserID(firebaseUser.uid);
-        console.log(firebaseUser.uid);
       } else {
         setUser(null);
       }
