@@ -53,16 +53,18 @@ const AddTradeEntry = () => {
       Add Trade Entry Page
       <form onSubmit={handleAddTrade}>
         <Alert message={alert.message} success={alert.isSuccess} />
-        <label>
+        <label htmlFor="currency_crypto">
           Currency/Crypto
           <input
+            type="text"
+            required
             id="currency_crypto"
             name="currency_crypto"
             value={fields.currency_crypto}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="trade_direction">
           Trade Direction
           <input
             id="trade_direction"
@@ -71,7 +73,7 @@ const AddTradeEntry = () => {
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="trade_outcome">
           Trade Outcome
           <input
             id="trade_outcome"
@@ -80,70 +82,84 @@ const AddTradeEntry = () => {
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="trade_open_date">
           Trade Open Date
           <input
+            type="date"
+            required
+            max={new Date().toISOString().split("T")[0]}
             id="trade_open_date"
             name="trade_open_date"
             value={fields.trade_open_date}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="trade_open_time">
           Trade Open Time
           <input
+            type="time"
             id="trade_open_time"
             name="trade_open_time"
             value={fields.trade_open_time}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="trade_close_date">
           Trade Close Date
           <input
+            type="date"
+            required
+            max={new Date().toISOString().split("T")[0]}
             id="trade_close_date"
             name="trade_close_date"
             value={fields.trade_close_date}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="trade_close_time">
           Trade Close Time
           <input
+            type="time"
             id="trade_close_time"
             name="trade_close_time"
             value={fields.trade_close_time}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="entry_price">
           Entry Price
           <input
+            type="number"
+            required
             id="entry_price"
             name="entry_price"
             value={fields.entry_price}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="exit_price">
           Exit Price
           <input
+            type="number"
+            required
             id="exit_price"
             name="exit_price"
             value={fields.exit_price}
             onChange={handleFieldChange}
           />
         </label>
-        <label>
+        <label htmlFor="observations">
           Observations
           <input
+            type="text"
+            placeholder="Maximum 500 characters"
+            maxLength="500"
             id="observations"
             name="observations"
             value={fields.observations}
             onChange={handleFieldChange}
           />
         </label>
-        <button>Add Row</button>
         <button type="submit" className="add-trade__submit-button">
           {" "}
           Submit
