@@ -22,23 +22,23 @@ const SignUp = () => {
     <div className="sign-in-container">
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
-        <input 
-         type="text"
-         placeholder="Enter your first name"
-         minLength="1"
-         maxLength="50"
-         pattern="[\p{L}\p{M}\s]{1,50}"
-         title=""
-         required
-         ></input>
-        <input 
-         type="text"
-         placeholder="Enter your last name"
-         minLength="1"
-         maxLength="50"
-         pattern="[\p{L}\p{M}\s]{1,50}"
-         required
-         ></input>
+        <input
+          type="text"
+          placeholder="Enter your first name"
+          minLength="1"
+          maxLength="50"
+          pattern="[\p{L}\p{M}\s]{1,50}"
+          title=""
+          required
+        ></input>
+        <input
+          type="text"
+          placeholder="Enter your last name"
+          minLength="1"
+          maxLength="50"
+          pattern="[\p{L}\p{M}\s]{1,50}"
+          required
+        ></input>
         <input
           type="email"
           placeholder="Enter your email"

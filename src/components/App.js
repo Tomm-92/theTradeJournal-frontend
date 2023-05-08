@@ -22,8 +22,8 @@ const App = () => {
 
   const getTrades = async () => {
     const response = await Axios.get("http://localhost:3000/tradeHistory");
-    setTrades(response.data)
-  }
+    setTrades(response.data);
+  };
 
   useEffect(() => {
     getData();
@@ -47,11 +47,14 @@ const App = () => {
 
   const handleSaveUpdate = async (tradeId, updatedData) => {
     try {
-      await Axios.patch(`http://localhost:3000/tradeHistory/${tradeId}`, updatedData);
+      await Axios.patch(
+        `http://localhost:3000/tradeHistory/${tradeId}`,
+        updatedData
+      );
 
       const updatedTrades = trades.map((trade) => {
-        if(trade.id === tradeId) {
-          return { ...trade, ...updatedData};
+        if (trade.id === tradeId) {
+          return { ...trade, ...updatedData };
         }
         return trade;
       });
@@ -100,16 +103,17 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MyTrades />} />
           <Route path="/add-trade-entry" element={<AddTradeEntry />} />
-          <Route path="/my-trades" 
+          <Route
+            path="/my-trades"
             element={
               <MyTrades
                 trades={trades}
                 handleEdit={handleEdit}
                 handleSaveUpdate={handleSaveUpdate}
                 handleDelete={handleDelete}
-                />
-             }
-            />
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
