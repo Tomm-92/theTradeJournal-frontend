@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
+import Axios from "axios";
 import "../styles/app.css";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
@@ -12,11 +13,7 @@ import { auth } from "../firebase";
 const App = () => {
   const [user, setUser] = useState(null);
   const [trades, setTrades] = useState("");
-
-  const getData = async () => {
-    const response = await Axios.get("http://localhost:3000/getData");
-    setData(response.data);
-  };
+  const [userID, setUserID] = useState("");
 
   const getTrades = async () => {
     const response = await Axios.get("http://localhost:3000/tradeHistory");
@@ -24,7 +21,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    getData();
     getTrades();
   }, []);
 

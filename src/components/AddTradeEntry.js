@@ -25,7 +25,6 @@ const AddTradeEntry = ({ userID }) => {
 
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
-  const [trades, setTrades] = useState("");
 
   const handleAddTrade = (event) => {
     event.preventDefault();
@@ -34,16 +33,11 @@ const AddTradeEntry = ({ userID }) => {
         ...fields,
         fireBaseId: userID,
       })
-      .then(({ data }) => {
-        setTrades(data.id);
-      })
       .then(() => {
         setAlert({
           message: "Trade Added",
           isSuccess: true,
         });
-        console.log(response);
-        console.log(response.data);
       })
       .catch(() =>
         setAlert({
