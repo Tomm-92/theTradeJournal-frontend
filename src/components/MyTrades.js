@@ -22,7 +22,13 @@ const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
   };
 
   const handleSaveUpdateClick = (tradeId) => {
+    if(Object.keys(updatedFields).length === 0) {
+      setEditingTradeId(null);
+      return;;
+    }
+
     handleSaveUpdate(tradeId, updatedFields);
+    setEditingTradeId(null);
     setUpdatedFields({});
   };
 
@@ -39,59 +45,75 @@ const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
           <div className="card-body">
             {editingTradeId === trade.id ? (
               <>
-                  <input
-                    type="text"
-                    defaultValue={trade.currency_crypto}
-                    onChange={(e) => handleFieldChange('currency_crypto', e.target.value)}
-                    />
                 <input
                   type="text"
-                  defaultValue={trade.trade_outcome}
+                  defaultValue={updatedFields.currency_crypto || trade.currency_crypto}
+                  onChange={(e) => handleFieldChange('currency_crypto', e.target.value)}
+                  />
+                <input
+                  type="text"
+                  defaultValue={updatedFields.trade_outcome || trade.trade_outcome}
                   onChange={(e) => handleFieldChange('trade_outcome', e.target.value)}
                   />
                 <input
                   type="text"
-                  defaultValue={trade.trade_close_date}
+                  defaultValue={updatedFields.trade_close_date || trade.trade_close_date}
                   onChange={(e) => handleFieldChange('trade_close_date', e.target.value)}
                   />
                 <input
                   type="text"
-                  defaultValue={trade.entry_price}
+                  defaultValue={updatedFields.entry_price || trade.entry_price}
                   onChange={(e) => handleFieldChange('entry_price', e.target.value)}
                   />
                 <input
                   type="text"
-                  defaultValue={trade.exit_price}
+                  defaultValue={updatedFields.exit_price || trade.exit_price}
                   onChange={(e) => handleFieldChange('exit_price', e.target.value)}
                   />
+                  <button
+                    className="save-button"
+                    onClick={() => handleSaveUpdateClick(trade.id)}
+                    >
+                      Save
+                    </button>
                </>
             ) : (
-              <h5 className="card-title">{trade.currency_crypto}</h5>
-            )}
+              <>
               <h6 className="card-subtitle">{trade.trade_data_open}</h6>            
               <p className="card-text">
+                Currency Pair/Crypto: {" "}
+                  <span className="card-title">
+                    {trade.currency_crypto}
+                    </span> {" "} |
                 Trade Outcome: {" "}
                   <span className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}>
                     {trade.trade_outcome}
                   </span>{" "}
-                  | Trade Close Date: {trade.trade_close_date} | Entry Price: {" "}
+                  | 
+                      Trade Close Date: <span className="trade-close-date">
+                       {trade.trade_close_date}
+                    </span>{" "}
+                  | Entry Price: {" "}
                   <span className="entry-price">{trade.entry_price}</span> | Exit Price: {" "}
                   <span className="exit-price">{trade.exit_price}</span>
               </p>
                   <div className="button-container">
-                    {editingTradeId === trade.id ? (
-                      <button className="save-button" onClick={() => handleSaveUpdateClick(trade.id)}>
-                      Save
-                    </button>
-                    ) : (
-                      <button className="edit-button" onClick={() => handleEditClick(trade.id)}>
+                    <button
+                      className="edit-button"
+                      onClick={() => handleEditClick(trade.id)}
+                      >
                         Edit
-                      </button> 
-                    )}
-                    <button className="delete-button" onClick={() => handleDeleteClick(trade.id)}>
-                      Delete
-                    </button>
+                      </button>
+                      <button
+                      className="delete-button"
+                      onClick={() => handleDeleteClick(trade.id)}
+                      >
+                        Delete
+                      </button>
+
                   </div>
+                  </>
+            )}
           </div>
         </div>
       ))}

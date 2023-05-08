@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.update-button {
+.edit-button {
     background-color: #34495e;
     color: #fff;
     padding: 8px 16px;
@@ -22,8 +22,18 @@
     cursor: pointer;
 }
 
-.update-button:hover,
-.delete-button:hover {
+.save-button {
+    background-color: #34495e;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.save-button:hover {
     opacity: 0.8;
 }
 
@@ -54,6 +64,10 @@
     margin-bottom: 0;
 }
 
+.card-title {
+    font-weight: bold;
+}
+
 .trade-outcome-win {
     color: green;
     font-weight: bold;
@@ -69,5 +83,9 @@
 }
 
 .exit-price {
+    font-weight: bold;
+}
+
+.trade-close-date {
     font-weight: bold;
 }
