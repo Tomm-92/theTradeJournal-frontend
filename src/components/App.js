@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     getTrades();
-  }, []);
+  });
 
   useEffect(() => {
     onAuthStateChanged(auth, (firebaseUser) => {
