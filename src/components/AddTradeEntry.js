@@ -65,7 +65,7 @@ const AddTradeEntry = () => {
             value={fields.currency_crypto}
             onChange={handleFieldChange}
           >
-            <option value="null"></option>
+            <option value=""></option>
             <option value="EUR/USD">EUR/USD</option>
             <option value="USD/JPY">USD/JPY</option>
             <option value="GBP/USD">GBP/USD</option>
@@ -96,7 +96,7 @@ const AddTradeEntry = () => {
             onChange={handleFieldChange}
           >
             {" "}
-            <option value="null"></option>
+            <option value=""></option>
             <option value="Long">Long</option>
             <option value="Short">Short</option>
           </select>
@@ -111,7 +111,7 @@ const AddTradeEntry = () => {
             value={fields.trade_outcome}
             onChange={handleFieldChange}
           >
-            <option value="null"></option>
+            <option value=""></option>
             <option value="Win">Win</option>
             <option value="Lose">Lose</option>
           </select>

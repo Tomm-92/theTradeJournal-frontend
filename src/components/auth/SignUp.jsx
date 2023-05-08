@@ -28,7 +28,7 @@ const SignUp = () => {
          minLength="1"
          maxLength="50"
          pattern="[\p{L}\p{M}\s]{1,50}"
-         title=""
+         title="Please only use letters and spaces"
          required
          ></input>
         <input 
@@ -37,17 +37,24 @@ const SignUp = () => {
          minLength="1"
          maxLength="50"
          pattern="[\p{L}\p{M}\s]{1,50}"
+         title="Please only use letters and spaces"
          required
          ></input>
         <input
           type="email"
+          required
           placeholder="Enter your email"
+          title="Please enter a valid email address e.g. user@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         <input
           type="password"
           placeholder="Enter your password"
+          minLength="6"
+          maxLength="50"
+          pattern=""
+          title="Password must be 6-50 characters and contain at least one uppercase letter and one special character"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
