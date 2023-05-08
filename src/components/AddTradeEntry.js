@@ -35,6 +35,11 @@ const AddTradeEntry = ({ userID }) => {
         setTrades(data.id);
       })
       .then(() => {
+        axios.patch(`http://localhost:3000/tradeHistory/${trades}`, {
+          fireBaseId: userID,
+        });
+      })
+      .then(() => {
         setAlert({
           message: "Trade Added",
           isSuccess: true,
@@ -52,11 +57,11 @@ const AddTradeEntry = ({ userID }) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
-  if (handleAddTrade) {
+  /* if (handleAddTrade) {
     axios.patch(`http://localhost:3000/tradeHistory/${trades}`, {
       fireBaseId: `${userID}`,
     });
-  }
+  } */
 
   return (
     <div className="add-trade">
