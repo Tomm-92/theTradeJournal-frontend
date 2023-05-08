@@ -1,73 +1,91 @@
 .button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .delete-button {
-    background-color: #27ae60;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #27ae60;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.update-button {
-    background-color: #34495e;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.edit-button {
+  background-color: #34495e;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.update-button:hover,
-.delete-button:hover {
-    opacity: 0.8;
+.save-button {
+  background-color: #34495e;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.save-button:hover {
+  opacity: 0.8;
 }
 
 .card {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    margin-bottom: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
 
 .card-body {
-    padding: 15px;
+  padding: 15px;
 }
 
 .card-title {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .card-subtitle {
-    color: #6c757d;
-    font-size: 14px;
-    margin-bottom: 10px;
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .card-text {
-    font-size: 14px;
-    margin-bottom: 0;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.card-title {
+  font-weight: bold;
 }
 
 .trade-outcome-win {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 
 .trade-outcome-lose {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 .entry-price {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .exit-price {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+.trade-close-date {
+  font-weight: bold;
 }
