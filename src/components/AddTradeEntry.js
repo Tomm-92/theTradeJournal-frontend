@@ -30,11 +30,13 @@ const AddTradeEntry = () => {
     event.preventDefault();
     axios
       .post("http://localhost:3000/tradeHistory/", fields)
-      .then(() => {
+      .then((response) => {
         setAlert({
           message: "Trade Added",
           isSuccess: true,
         });
+        console.log(response);
+        console.log(response.data);
       })
       .catch(() =>
         setAlert({
@@ -55,32 +57,64 @@ const AddTradeEntry = () => {
         <Alert message={alert.message} success={alert.isSuccess} />
         <label htmlFor="currency_crypto">
           Currency/Crypto
-          <input
+          <select
             type="text"
             required
             id="currency_crypto"
             name="currency_crypto"
             value={fields.currency_crypto}
             onChange={handleFieldChange}
-          />
+          >
+            <option value="null"></option>
+            <option value="EUR/USD">EUR/USD</option>
+            <option value="USD/JPY">USD/JPY</option>
+            <option value="GBP/USD">GBP/USD</option>
+            <option value="USD/CHF">USD/CHF</option>
+            <option value="USD/CAD">USD/CAD</option>
+            <option value="AUD/USD">AUD/USD</option>
+            <option value="NZD/USD">NZD/USD</option>
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="Tether">Tether</option>
+            <option value="BNB">BNB</option>
+            <option value="USD Coin">USD Coin</option>
+            <option value="XRP">XRP</option>
+            <option value="Cardano">Cardano</option>
+            <option value="Dogecoin">Dogecoin</option>
+            <option value="Polygon">Polygon</option>
+            <option value="Solana">Solana</option>
+          </select>
         </label>
         <label htmlFor="trade_direction">
           Trade Direction
-          <input
+          <select
+            type="text"
+            required
             id="trade_direction"
             name="trade_direction"
             value={fields.trade_direction}
             onChange={handleFieldChange}
-          />
+          >
+            {" "}
+            <option value="null"></option>
+            <option value="Long">Long</option>
+            <option value="Short">Short</option>
+          </select>
         </label>
         <label htmlFor="trade_outcome">
           Trade Outcome
-          <input
+          <select
+            type="text"
+            required
             id="trade_outcome"
             name="trade_outcome"
             value={fields.trade_outcome}
             onChange={handleFieldChange}
-          />
+          >
+            <option value="null"></option>
+            <option value="Win">Win</option>
+            <option value="Lose">Lose</option>
+          </select>
         </label>
         <label htmlFor="trade_open_date">
           Trade Open Date
@@ -98,6 +132,7 @@ const AddTradeEntry = () => {
           Trade Open Time
           <input
             type="time"
+            required
             id="trade_open_time"
             name="trade_open_time"
             value={fields.trade_open_time}
@@ -120,6 +155,7 @@ const AddTradeEntry = () => {
           Trade Close Time
           <input
             type="time"
+            required
             id="trade_close_time"
             name="trade_close_time"
             value={fields.trade_close_time}
