@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import Axios from "axios";
 import "../styles/app.css";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
@@ -12,17 +11,7 @@ import { auth } from "../firebase";
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [trades, setTrades] = useState("");
   const [userID, setUserID] = useState("");
-
-  const getTrades = async () => {
-    const response = await Axios.get("http://localhost:3000/tradeHistory");
-    setTrades(response.data);
-  };
-
-  useEffect(() => {
-    getTrades();
-  });
 
   useEffect(() => {
     onAuthStateChanged(auth, (firebaseUser) => {
@@ -35,46 +24,6 @@ const App = () => {
     });
   }, []);
 
-  const handleEdit = (tradeId) => {
-    const trade = trades.find((trade) => trade.id === tradeId);
-    console.log("Editing trade:", trade);
-  };
-
-  const handleSaveUpdate = async (tradeId, updatedData) => {
-    try {
-      await Axios.patch(
-        `http://localhost:3000/tradeHistory/${tradeId}`,
-        updatedData
-      );
-
-      const updatedTrades = trades.map((trade) => {
-        if (trade.id === tradeId) {
-          return { ...trade, ...updatedData };
-        }
-        return trade;
-      });
-      setTrades(updatedTrades);
-
-      console.log("Trade updated successfully");
-    } catch (error) {
-      console.log("Error updating trade:", error);
-      console.log(tradeId);
-      console.log(updatedData);
-    }
-  };
-
-  const handleDelete = async (tradeId) => {
-    try {
-      await Axios.delete(`http://localhost:3000/tradehistory/${tradeId}`);
-      const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
-      setTrades(updatedTrades);
-
-      console.log("Trade deleted successfully");
-    } catch (error) {
-      console.log("Error deleting trade:", error);
-    }
-  };
-
   if (!user)
     return (
       <Router>
@@ -82,7 +31,7 @@ const App = () => {
           <div>Hello</div>
           <Routes>
             <Route path="/" element={<Signin />} />
-            <Route path="/add-trade-entry" element={<Signin />} />
+            <Route path="/add-trade-entry" element={<Signin alert={alert} />} />
             <Route path="/my-trades" element={<Signin />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>
@@ -93,7 +42,7 @@ const App = () => {
   return (
     <Router>
       <div className="">
-        <div>Hello {trades.length > 0 && trades[0].id}</div>
+        <div>Hello</div>
         <NavBar />
         <Routes>
           <Route path="/" element={<MyTrades />} />
@@ -101,17 +50,7 @@ const App = () => {
             path="/add-trade-entry"
             element={<AddTradeEntry userID={userID} />}
           />
-          <Route
-            path="/my-trades"
-            element={
-              <MyTrades
-                trades={trades}
-                handleEdit={handleEdit}
-                handleSaveUpdate={handleSaveUpdate}
-                handleDelete={handleDelete}
-              />
-            }
-          />
+          <Route path="/my-trades" element={<MyTrades />} />
         </Routes>
       </div>
     </Router>

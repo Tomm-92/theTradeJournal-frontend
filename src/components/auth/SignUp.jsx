@@ -68,14 +68,6 @@ const SignUp = () => {
           onChange={handleFieldChange}
         ></input>
         <input
-          type="text"
-          placeholder="Enter your last name"
-          id="last_name"
-          name="last_name"
-          value={fields.last_name}
-          onChange={handleFieldChange}
-        ></input>
-        <input
           type="email"
           required
           placeholder="Enter your email"
@@ -86,10 +78,6 @@ const SignUp = () => {
         <input
           type="password"
           placeholder="Enter your password"
-          minLength="6"
-          maxLength="50"
-          pattern=""
-          title="Password must be 6-50 characters and contain at least one uppercase letter and one special character"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>

@@ -1,9 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Axios from "axios";
 import "../styles/mytrades.css";
 
-const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
+const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
   const [updatedFields, setUpdatedFields] = useState({});
+  const [trades, setTrades] = useState("");
+  const location = useLocation();
+
+  const getTrades = async () => {
+    const response = await Axios.get("http://localhost:3000/tradeHistory");
+    setTrades(
+      response.data.sort(
+        (tradeA, tradeB) =>
+          new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
+      )
+    );
+  };
+
+  useEffect(() => {
+    getTrades();
+  }, [location]);
 
   if (!trades || trades.length === 0) {
     return null;
@@ -33,6 +51,47 @@ const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
 
   const handleDeleteClick = (tradeId) => {
     handleDelete(tradeId);
+  };
+
+  const handleSaveUpdate = async (tradeId, updatedData) => {
+    try {
+      const { data: updatedTrade } = await Axios.patch(
+        `http://localhost:3000/tradeHistory/${tradeId}`,
+        updatedData
+      );
+      console.log(updatedTrade);
+
+      const updatedTrades = trades
+        .map((trade) => {
+          if (trade.id === tradeId) {
+            return updatedTrade;
+          }
+          return trade;
+        })
+        .sort(
+          (tradeA, tradeB) =>
+            new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
+        );
+      setTrades(updatedTrades);
+
+      console.log("Trade updated successfully");
+    } catch (error) {
+      console.log("Error updating trade:", error);
+      console.log(tradeId);
+      console.log(updatedData);
+    }
+  };
+
+  const handleDelete = async (tradeId) => {
+    try {
+      await Axios.delete(`http://localhost:3000/tradehistory/${tradeId}`);
+      const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
+      setTrades(updatedTrades);
+
+      console.log("Trade deleted successfully");
+    } catch (error) {
+      console.log("Error deleting trade:", error);
+    }
   };
 
   return (
