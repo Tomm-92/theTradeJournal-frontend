@@ -4,6 +4,7 @@ import "../styles/mytrades.css";
 const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
 
   const [editingTradeId, setEditingTradeId] = useState(null);
+  const [updatedFields, setUpdatedFields] = useState({});
 
   if(!trades || trades.length === 0){
     return null;
@@ -13,12 +14,16 @@ const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
     setEditingTradeId(tradeId);
   };
 
-  const handleSaveUpdateClick = (tradeId, updatedOutcome) => {
-    const updatedData = {
-      trade_outcome: updatedOutcome,
-    };
-    handleSaveUpdate(tradeId, updatedData);
-    setEditingTradeId(null);
+  const handleFieldChange = (fieldName, fieldValue) => {
+    setUpdatedFields((prevFields) => ({
+      ...prevFields,
+      [fieldName]: fieldValue,
+    }));
+  };
+
+  const handleSaveUpdateClick = (tradeId) => {
+    handleSaveUpdate(tradeId, updatedFields);
+    setUpdatedFields({});
   };
 
   const handleDeleteClick = (tradeId) => {
@@ -32,14 +37,32 @@ const MyTrades = ({ trades, handleEdit, handleSaveUpdate, handleDelete }) => {
       {trades.map((trade) => (
         <div className="card" key={trade.id}>
           <div className="card-body">
-
             {editingTradeId === trade.id ? (
               <>
+                  <input
+                    type="text"
+                    defaultValue={trade.currency_crypto}
+                    onChange={(e) => handleFieldChange('currency_crypto', e.target.value)}
+                    />
                 <input
                   type="text"
                   defaultValue={trade.trade_outcome}
-                  ref={(input) => input && input.focus()}
-                  onBlur={(e) => handleSaveUpdateClick(trade.id, e.target.value)}
+                  onChange={(e) => handleFieldChange('trade_outcome', e.target.value)}
+                  />
+                <input
+                  type="text"
+                  defaultValue={trade.trade_close_date}
+                  onChange={(e) => handleFieldChange('trade_close_date', e.target.value)}
+                  />
+                <input
+                  type="text"
+                  defaultValue={trade.entry_price}
+                  onChange={(e) => handleFieldChange('entry_price', e.target.value)}
+                  />
+                <input
+                  type="text"
+                  defaultValue={trade.exit_price}
+                  onChange={(e) => handleFieldChange('exit_price', e.target.value)}
                   />
                </>
             ) : (
