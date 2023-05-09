@@ -94,9 +94,9 @@ const SignUp = () => {
         <input
           type="password"
           required
-          minLength="12"
+          minLength="10"
           maxLength="50"
-          placeholder="12-50 characters"
+          placeholder="10-50 characters"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>

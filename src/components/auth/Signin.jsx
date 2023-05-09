@@ -25,18 +25,28 @@ const SignIn = () => {
       <form onSubmit={signIn}>
         <img src={logo} alt="app-logo" />
         <h1>Log In to your Account</h1>
+        <label>
+          Email Address
         <input
           type="email"
-          placeholder="Enter your email"
+          required
+          placeholder="user@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
+        </label>
+        <label>
+          Password
         <input
           type="password"
-          placeholder="Enter your password"
+          required
+          minLength="10"
+          maxLength="50"
+          placeholder="10-50 characters"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        </label>
         <button type="submit">Log In</button>
       </form>
       <Link to="/sign-up">Not registered? Sign up here </Link>

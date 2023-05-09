@@ -6,7 +6,7 @@ exports[`App renders correctly 1`] = `
     class=""
   >
     <div>
-      Hello 
+      Hello
     </div>
     <div
       class="sign-in-container"
@@ -19,16 +19,26 @@ exports[`App renders correctly 1`] = `
         <h1>
           Log In to your Account
         </h1>
-        <input
-          placeholder="Enter your email"
-          type="email"
-          value=""
-        />
-        <input
-          placeholder="Enter your password"
-          type="password"
-          value=""
-        />
+        <label>
+          Email Address
+          <input
+            placeholder="user@example.com"
+            required=""
+            type="email"
+            value=""
+          />
+        </label>
+        <label>
+          Password
+          <input
+            maxlength="50"
+            minlength="10"
+            placeholder="10-50 characters"
+            required=""
+            type="password"
+            value=""
+          />
+        </label>
         <button
           type="submit"
         >
