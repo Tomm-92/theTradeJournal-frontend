@@ -123,6 +123,15 @@ const MyTrades = () => {
                   <input
                     type="text"
                     defaultValue={
+                      updatedFields.trade_open_date || trade.trade_open_date
+                    }
+                    onChange={(e) =>
+                    handleFieldChange("trade_open_date", e.target.value)
+                    }
+                  />
+                  <input
+                    type="text"
+                    defaultValue={
                       updatedFields.trade_close_date || trade.trade_close_date
                     }
                     onChange={(e) =>
@@ -145,6 +154,13 @@ const MyTrades = () => {
                       handleFieldChange("exit_price", e.target.value)
                     }
                   />
+                  <input
+                    type="text"
+                    defaultValue={updatedFields.observations || trade.observations}
+                    onChange={(e) =>
+                      handleFieldChange("observations", e.target.value)
+                    }
+                  />
                   <button
                     className="save-button"
                     onClick={() => handleSaveUpdateClick(trade.id)}
@@ -164,6 +180,10 @@ const MyTrades = () => {
                     >
                       {trade.trade_outcome}
                     </span>{" "}
+                    | Trade Open Date:{" "}
+                    <span className="trade-open-date">
+                      {trade.trade_open_date}
+                    </span>{" "}
                     | Trade Close Date:{" "}
                     <span className="trade-close-date">
                       {trade.trade_close_date}
@@ -172,6 +192,10 @@ const MyTrades = () => {
                     <span className="entry-price">{trade.entry_price}</span> |
                     Exit Price:{" "}
                     <span className="exit-price">{trade.exit_price}</span>
+                  </p>
+                  <p className="card-text">
+                  Observation:{" "}
+                    <span className="trade-observation">{trade.observations}</span>
                   </p>
                   <div className="button-container">
                     <button
