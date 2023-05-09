@@ -6,7 +6,7 @@ exports[`App renders correctly 1`] = `
     class=""
   >
     <div>
-      Hello 
+      Hello
     </div>
     <div
       class="sign-in-container"

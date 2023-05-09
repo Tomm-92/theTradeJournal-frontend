@@ -102,8 +102,12 @@ const MyTrades = () => {
             <div className="card-body">
               {editingTradeId === trade.id ? (
                 <>
+                <label htmlFor={`currency_crypto_${trade.id}`}>
+                  Currency Pair/Crypto:
+                </label>
                   <input
                     type="text"
+                    id={`currency_crypto_${trade.id}`}
                     defaultValue={
                       updatedFields.currency_crypto || trade.currency_crypto
                     }
@@ -111,8 +115,12 @@ const MyTrades = () => {
                       handleFieldChange("currency_crypto", e.target.value)
                     }
                   />
+                  <label htmlFor={`trade_outcome_${trade.id}`}>
+                    Trade Outcome:
+                  </label>
                   <input
                     type="text"
+                    id={`trade_outcome_${trade.id}`}
                     defaultValue={
                       updatedFields.trade_outcome || trade.trade_outcome
                     }
@@ -120,8 +128,12 @@ const MyTrades = () => {
                       handleFieldChange("trade_outcome", e.target.value)
                     }
                   />
+                  <label htmlFor={`trade_open_date_${trade.id}`}>
+                    Trade Open Date:
+                  </label>
                   <input
                     type="text"
+                    id={`trade_outcome_${trade.id}`}
                     defaultValue={
                       updatedFields.trade_open_date || trade.trade_open_date
                     }
@@ -129,8 +141,12 @@ const MyTrades = () => {
                     handleFieldChange("trade_open_date", e.target.value)
                     }
                   />
+                  <label htmlFor={`trade_close_date_${trade.id}`}>
+                    Trade Close Date:
+                  </label>
                   <input
                     type="text"
+                    id={`trade_outcome_${trade.id}`}
                     defaultValue={
                       updatedFields.trade_close_date || trade.trade_close_date
                     }
@@ -138,8 +154,12 @@ const MyTrades = () => {
                       handleFieldChange("trade_close_date", e.target.value)
                     }
                   />
+                  <label htmlFor={`entry_price_${trade.id}`}>
+                    Entry Price:
+                  </label>
                   <input
                     type="text"
+                    id={`trade_outcome_${trade.id}`}
                     defaultValue={
                       updatedFields.entry_price || trade.entry_price
                     }
@@ -147,14 +167,22 @@ const MyTrades = () => {
                       handleFieldChange("entry_price", e.target.value)
                     }
                   />
+                  <label htmlFor={`exit_price_${trade.id}`}>
+                    Exit Price:
+                  </label>
                   <input
                     type="text"
+                    id={`trade_outcome_${trade.id}`}
                     defaultValue={updatedFields.exit_price || trade.exit_price}
                     onChange={(e) =>
                       handleFieldChange("exit_price", e.target.value)
                     }
                   />
+                  <label htmlFor={`observations_${trade.id}`}>
+                    Observations:
+                  </label>
                   <textarea
+                    id={`observations_${trade.id}`}
                     className="trade-observation-input"
                     defaultValue={updatedFields.observations || trade.observations}
                     onChange={(e) =>
@@ -172,29 +200,29 @@ const MyTrades = () => {
                 <>
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
                   <p className="card-text">
-                    Currency Pair/Crypto:{" "}
+                    <span className="label-currency">Currency Pair/Crypto: </span>
                     <span className="card-title">{trade.currency_crypto}</span>{" "}
-                    | Trade Outcome:{" "}
+                    | <span className="label-outcome">Trade Outcome: </span>
                     <span
                       className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}
                     >
                       {trade.trade_outcome}
                     </span>{" "}
-                    | Trade Open Date:{" "}
+                    | <span className="label">Trade Open Date: </span> 
                     <span className="trade-open-date">
                       {trade.trade_open_date}
                     </span>{" "}
-                    | Trade Close Date:{" "}
+                    | <span className="label">Trade Close Date: </span> 
                     <span className="trade-close-date">
                       {trade.trade_close_date}
                     </span>{" "}
-                    | Entry Price:{" "}
-                    <span className="entry-price">{trade.entry_price}</span> |
-                    Exit Price:{" "}
+                    | <span className="label">Entry Price: </span> 
+                    <span className="entry-price">{trade.entry_price}</span> 
+                    | <span className="label">Exit Price: </span> 
                     <span className="exit-price">{trade.exit_price}</span>
                   </p>
                   <p className="card-text">
-                  Observation:{" "}
+                  <span className="label">Observation: </span> 
                     <span className="trade-observation">{trade.observations}</span>
                   </p>
                   <div className="button-container">
