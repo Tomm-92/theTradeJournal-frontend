@@ -26,7 +26,7 @@ const SignUp = () => {
         axios
           .post("http://localhost:3000/users/", {
             email_address: `${userCredential.user.email}`,
-            fireBaseUid: `${userCredential.user.uid}`,
+            firebase_uid: `${userCredential.user.uid}`,
             first_name: fields.first_name,
             last_name: fields.last_name,
           })
@@ -47,12 +47,16 @@ const SignUp = () => {
         <h1>Create Account</h1>
         <input
           type="text"
-          placeholder="Enter your first first name"
+          placeholder="Enter your first name"
           minLength="1"
           maxLength="50"
           pattern="[\p{L}\p{M}\s]{1,50}"
           title="Please only use letters and spaces"
           required
+          id="first_name"
+          name="first_name"
+          value={fields.first_name}
+          onChange={handleFieldChange}
         ></input>
         <input
           type="text"
@@ -62,9 +66,9 @@ const SignUp = () => {
           pattern="[\p{L}\p{M}\s]{1,50}"
           title="Please only use letters and spaces"
           required
-          id="first_name"
-          name="first_name"
-          value={fields.first_name}
+          id="last_name"
+          name="last_name"
+          value={fields.last_name}
           onChange={handleFieldChange}
         ></input>
         <input
@@ -81,7 +85,6 @@ const SignUp = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <input type="password" placeholder="Confirm your password"></input>
         <button type="submit">Sign Up</button>
       </form>
       <Link to="/">Already Signed up? Log in here</Link>
