@@ -154,8 +154,8 @@ const MyTrades = () => {
                       handleFieldChange("exit_price", e.target.value)
                     }
                   />
-                  <input
-                    type="text"
+                  <textarea
+                    className="trade-observation-input"
                     defaultValue={updatedFields.observations || trade.observations}
                     onChange={(e) =>
                       handleFieldChange("observations", e.target.value)
