@@ -19,8 +19,8 @@ describe("MyTrades", () => {
 
         const {asFragment} = render(
             <MemoryRouter>
-                <MyTrades trades={validProps}/>
+                <MyTrades trades={validProps} />
             </MemoryRouter>);
         expect(asFragment()).toMatchSnapshot();
     });
-});
+ });
