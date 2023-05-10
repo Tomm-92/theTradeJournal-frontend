@@ -27,7 +27,7 @@ const SignUp = () => {
         axios
           .post("http://localhost:3000/users/", {
             email_address: `${userCredential.user.email}`,
-            firebase_uid: `${userCredential.user.uid}`,
+            fireBaseUid: `${userCredential.user.uid}`,
             first_name: fields.first_name,
             last_name: fields.last_name,
           })
@@ -61,6 +61,25 @@ const SignUp = () => {
             value={fields.first_name}
             onChange={handleFieldChange}
           ></input>
+        </label>
+        <label htmlFor="last_name">
+          Last Name
+          <input
+            type="text"
+            placeholder="White"
+            minLength="1"
+            maxLength="50"
+            pattern="[\p{L}\p{M}\s]{1,50}"
+            title="Please only use letters and spaces"
+            required
+            id="last_name"
+            name="last_name"
+            value={fields.last_name}
+            onChange={handleFieldChange}
+          ></input>
+        </label>
+        <label>
+          Email Address
           <input
             type="email"
             required
