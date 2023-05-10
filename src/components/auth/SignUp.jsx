@@ -27,7 +27,7 @@ const SignUp = () => {
         axios
           .post("http://localhost:3000/users/", {
             email_address: `${userCredential.user.email}`,
-            fireBaseUid: `${userCredential.user.uid}`,
+            firebase_uid: `${userCredential.user.uid}`,
             first_name: fields.first_name,
             last_name: fields.last_name,
           })
