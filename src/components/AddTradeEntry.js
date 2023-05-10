@@ -29,7 +29,7 @@ const AddTradeEntry = ({ userID }) => {
   useEffect(() => {
     setTimeout(() => {
       setAlert({ message: "" });
-    }, 10000);
+    }, 30000);
   });
 
   const handleAddTrade = (event) => {
