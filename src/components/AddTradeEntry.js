@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "./Alert";
 import "../styles/addTradeEntry.css";
@@ -26,18 +26,25 @@ const AddTradeEntry = ({ userID }) => {
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert({ message: "" });
+    }, 30000);
+  });
+
   const handleAddTrade = (event) => {
     event.preventDefault();
     axios
       .post("http://localhost:3000/tradeHistory/", {
         ...fields,
-        fireBaseId: userID,
+        firebase_uid: userID,
       })
       .then(() => {
         setAlert({
           message: "Trade Added",
           isSuccess: true,
         });
+        setFields(initialState.fields);
       })
       .catch(() =>
         setAlert({
@@ -46,6 +53,8 @@ const AddTradeEntry = ({ userID }) => {
         })
       );
   };
+
+  //move this to a requests folder and can then test the individual function
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
