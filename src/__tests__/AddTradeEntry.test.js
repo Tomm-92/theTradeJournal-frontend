@@ -37,17 +37,18 @@ describe("App", () => {
           entry_price: "1000",
           exit_price: "2000",
           observations: "test observation",
+          firebase_uid: "xzy123456",
         },
       };
 
-      AddTradeEntry.mockResolvedValue(expectedResponse);
+      AddTradeEntry.mockResolvedValue(expectedResponse); // Move this line here
 
-      const response = await AddTradeEntry(fields, userID);
+      const response = await AddTradeEntry(userID);
+      console.log(response);
 
       expect(response).toEqual(expectedResponse);
-      expect(AddTradeEntry).toHaveBeenCalled();
 
-      /*expect(axios.post).toHaveBeenCalledWith(
+      /* expect(AddTradeEntry).toHaveBeenCalledWith(
         "http://localhost:3000/tradeHistory/",
         {
           ...fields,

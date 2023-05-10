@@ -54,6 +54,8 @@ const AddTradeEntry = ({ userID }) => {
       );
   };
 
+  //move this to a requests folder and can then test the individual function
+
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
