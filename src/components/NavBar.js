@@ -10,6 +10,7 @@ const NavBar = () => {
         <img src={logo} alt="app-logo" />
         <Link to="/add-trade-entry">Add Trade Entry </Link>
         <Link to="/my-trades">My Trades </Link>
+        <Link to="/dashboard">Dashboard </Link>
         <AuthDetails />
       </ul>
     </div>
