@@ -7,6 +7,7 @@ import AddTradeEntry from "./AddTradeEntry";
 import MyTrades from "./MyTrades";
 import Signin from "./auth/Signin.jsx";
 import SignUp from "./auth/SignUp.jsx";
+import Dashboard from "./Dashboard";
 import { auth } from "../firebase";
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/" element={<Signin />} />
             <Route path="/add-trade-entry" element={<Signin alert={alert} />} />
             <Route path="/my-trades" element={<Signin />} />
+            <Route path="/dashboard" element={<Signin />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>
         </div>
@@ -52,6 +54,7 @@ const App = () => {
             element={<AddTradeEntry userID={userID} />}
           />
           <Route path="/my-trades" element={<MyTrades />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
