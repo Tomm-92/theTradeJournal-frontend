@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { auth } from "../../firebase";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../../styles/signup.css";
+import logo from "../../images/avault.png";
+import "../../styles/signup.css"
 
 const SignUp = () => {
   const initialState = {
@@ -45,6 +46,7 @@ const SignUp = () => {
   return (
     <div className="sign-up-container">
       <form onSubmit={signUp}>
+        <img src={logo} alt="app-logo"/>
         <h1>Create Account</h1>
         <label htmlFor="first_name">
           First Name

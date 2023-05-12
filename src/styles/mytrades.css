@@ -45,11 +45,25 @@
   border: 1px solid #ced4da;
   border-radius: 4px;
   margin-bottom: 20px;
+  /* display: flex;
+  justify-content: center; */
 }
+
+/* .card-parent {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+  }
+  
+  .card {
+    width: calc(50% - 10px); 
+    margin-bottom: 20px;
+  } */
 
 .card-body {
   padding: 15px;
   position: relative;
+  align-items: center;
 }
 
 .card-title {
@@ -117,3 +131,27 @@
 .trade-open-date {
     font-weight: bold;
 }
+
+.my-trades-page-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #27ae60;
+    font-weight: bold;
+    
+  }
+  
+  .social-media-footer {
+    margin-top: 10px;
+  }
+  
+  .social-media-footer a {
+    text-decoration: none;
+    color: #27ae60;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }

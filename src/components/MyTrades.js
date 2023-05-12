@@ -96,7 +96,7 @@ const MyTrades = () => {
 
   return (
     <>
-      <div>
+      <div className="card-parent">
         {trades.map((trade) => (
           <div className="card" key={trade.id}>
             <div className="card-body">
@@ -217,7 +217,7 @@ const MyTrades = () => {
                       {trade.trade_close_date}
                     </span>{" "}
                     | <span className="label">Entry Price: </span> 
-                    <span className="entry-price">{trade.entry_price}</span> 
+                    <span className="entry-price">{trade.entry_price}</span>{" "} 
                     | <span className="label">Exit Price: </span> 
                     <span className="exit-price">{trade.exit_price}</span>
                   </p>
@@ -245,14 +245,13 @@ const MyTrades = () => {
           </div>
         ))}
       </div>
-      <div>
-        My Trades Page
-        <div>
+      <div className="my-trades-page-footer">
+        <div className="social-media-footer">
           <a href="https://twitter.com/" alt="twitter">
-            Twitter
+            Twitter  |
           </a>
           <a href="https://facebook.com/" alt="Facebook">
-            Facebook
+            Facebook  |
           </a>
           <a href="https://instagram.com/" alt="Instagram">
             Instagram

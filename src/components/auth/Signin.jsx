@@ -2,7 +2,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
-import logo from "../../images/logo.png";
+import logo from "../../images/avault.png";
+import "../../styles/signin.css";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ const SignIn = () => {
       <form onSubmit={signIn}>
         <img src={logo} alt="app-logo" />
         <h1>Log In to your Account</h1>
-        <label>
+        <label className="email-label">
           Email Address
         <input
           type="email"
@@ -35,7 +36,7 @@ const SignIn = () => {
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         </label>
-        <label>
+        <label className="password-label">
           Password
         <input
           type="password"
@@ -49,8 +50,10 @@ const SignIn = () => {
         </label>
         <button type="submit">Log In</button>
       </form>
+      <div className="not-registered">
       <Link to="/sign-up">Not registered? Sign up here </Link>
-      <div>
+      </div>
+      <div className="social-media">
         <a href="https://twitter.com/" alt="twitter">
           Twitter
         </a>
