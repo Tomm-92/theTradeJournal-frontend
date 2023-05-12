@@ -1,5 +1,4 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import React from "react";
 import Table from "./coinTable/CoinTable";
 import "../styles/coinTable.css";
 
@@ -9,7 +8,6 @@ const Dashboard = () => {
       mode: "dark",
     },
   });
-
   return (
     <ThemeProvider theme={theme}>
       <div className="coin-table">
