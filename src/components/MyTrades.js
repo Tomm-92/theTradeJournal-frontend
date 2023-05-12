@@ -96,15 +96,15 @@ const MyTrades = () => {
 
   return (
     <>
-      <div>
+      <div className="card-parent">
         {trades.map((trade) => (
           <div className="card" key={trade.id}>
             <div className="card-body">
               {editingTradeId === trade.id ? (
                 <>
-                <label htmlFor={`currency_crypto_${trade.id}`}>
-                  Currency Pair/Crypto:
-                </label>
+                  <label htmlFor={`currency_crypto_${trade.id}`}>
+                    Currency Pair/Crypto:
+                  </label>
                   <input
                     type="text"
                     id={`currency_crypto_${trade.id}`}
@@ -138,7 +138,7 @@ const MyTrades = () => {
                       updatedFields.trade_open_date || trade.trade_open_date
                     }
                     onChange={(e) =>
-                    handleFieldChange("trade_open_date", e.target.value)
+                      handleFieldChange("trade_open_date", e.target.value)
                     }
                   />
                   <label htmlFor={`trade_close_date_${trade.id}`}>
@@ -167,9 +167,7 @@ const MyTrades = () => {
                       handleFieldChange("entry_price", e.target.value)
                     }
                   />
-                  <label htmlFor={`exit_price_${trade.id}`}>
-                    Exit Price:
-                  </label>
+                  <label htmlFor={`exit_price_${trade.id}`}>Exit Price:</label>
                   <input
                     type="text"
                     id={`trade_outcome_${trade.id}`}
@@ -184,7 +182,9 @@ const MyTrades = () => {
                   <textarea
                     id={`observations_${trade.id}`}
                     className="trade-observation-input"
-                    defaultValue={updatedFields.observations || trade.observations}
+                    defaultValue={
+                      updatedFields.observations || trade.observations
+                    }
                     onChange={(e) =>
                       handleFieldChange("observations", e.target.value)
                     }
@@ -200,7 +200,9 @@ const MyTrades = () => {
                 <>
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
                   <p className="card-text">
-                    <span className="label-currency">Currency Pair/Crypto: </span>
+                    <span className="label-currency">
+                      Currency Pair/Crypto:{" "}
+                    </span>
                     <span className="card-title">{trade.currency_crypto}</span>{" "}
                     | <span className="label-outcome">Trade Outcome: </span>
                     <span
@@ -208,22 +210,25 @@ const MyTrades = () => {
                     >
                       {trade.trade_outcome}
                     </span>{" "}
-                    | <span className="label">Trade Open Date: </span> 
+                    | <span className="label">Trade Open Date: </span>
                     <span className="trade-open-date">
                       {trade.trade_open_date}
                     </span>{" "}
-                    | <span className="label">Trade Close Date: </span> 
+                    | <span className="label">Trade Close Date: </span>
                     <span className="trade-close-date">
                       {trade.trade_close_date}
                     </span>{" "}
-                    | <span className="label">Entry Price: </span> 
-                    <span className="entry-price">{trade.entry_price}</span> 
-                    | <span className="label">Exit Price: </span> 
+                    | <span className="label">Entry Price: </span>
+                    <span className="entry-price">
+                      {trade.entry_price}
+                    </span> | <span className="label">Exit Price: </span>
                     <span className="exit-price">{trade.exit_price}</span>
                   </p>
                   <p className="card-text">
-                  <span className="label">Observation: </span> 
-                    <span className="trade-observation">{trade.observations}</span>
+                    <span className="label">Observation: </span>
+                    <span className="trade-observation">
+                      {trade.observations}
+                    </span>
                   </p>
                   <div className="button-container">
                     <button
@@ -245,14 +250,13 @@ const MyTrades = () => {
           </div>
         ))}
       </div>
-      <div>
-        My Trades Page
-        <div>
+      <div className="my-trades-page-footer">
+        <div className="social-media-footer">
           <a href="https://twitter.com/" alt="twitter">
-            Twitter
+            Twitter |
           </a>
           <a href="https://facebook.com/" alt="Facebook">
-            Facebook
+            Facebook |
           </a>
           <a href="https://instagram.com/" alt="Instagram">
             Instagram

@@ -1,0 +1,18 @@
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #087b5b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.auth-details {
+  display: flex;
+  align-items: center;
+  justify-content: space;
+  font-size: 20px;
+  color: white;
+}
