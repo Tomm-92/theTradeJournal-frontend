@@ -1,0 +1,9 @@
+.twitter {
+  border: solid blue 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.twitter-timeline {
+  border: solid red 3px;
+}

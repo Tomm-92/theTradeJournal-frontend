@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Axios from "axios";
+import "../styles/app.css";
 
 const Dashboard = () => {
   const getUSDBase = async () => {
@@ -32,10 +33,12 @@ const Dashboard = () => {
     <div>
       Dashboard
       <div></div>
-      <div>
+      <div className="twitter">
         <a
           className="twitter-timeline"
           href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
+          data-width="300"
+          data-height="400"
         >
           Tweets by Newsquawk
         </a>{" "}
