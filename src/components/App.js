@@ -27,27 +27,27 @@ const App = () => {
   if (!user)
     return (
       <Router>
-          <Routes>
-            <Route path="/" element={<Signin />} />
-            <Route path="/add-trade-entry" element={<Signin alert={alert} />} />
-            <Route path="/my-trades" element={<Signin />} />
-            <Route path="/sign-up" element={<SignUp />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Signin />} />
+          <Route path="/add-trade-entry" element={<Signin alert={alert} />} />
+          <Route path="/my-trades" element={<Signin />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
       </Router>
     );
 
   return (
     <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<MyTrades />} />
-          <Route path="/sign-up" element={<AddTradeEntry />} />
-          <Route
-            path="/add-trade-entry"
-            element={<AddTradeEntry userID={userID} />}
-          />
-          <Route path="/my-trades" element={<MyTrades />} />
-        </Routes>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<MyTrades />} />
+        <Route path="/sign-up" element={<AddTradeEntry />} />
+        <Route
+          path="/add-trade-entry"
+          element={<AddTradeEntry userID={userID} />}
+        />
+        <Route path="/my-trades" element={<MyTrades />} />
+      </Routes>
     </Router>
   );
 };

@@ -62,9 +62,7 @@ const AddTradeEntry = ({ userID }) => {
 
   return (
     <div className="add-trade">
-      <div className="add-trade-header">
-      Add Trade Entry Page
-      </div>
+      <div className="add-trade-header">Add Trade Entry Page</div>
       <form onSubmit={handleAddTrade}>
         <Alert message={alert.message} success={alert.isSuccess} />
         <label htmlFor="currency_crypto">
@@ -215,10 +213,10 @@ const AddTradeEntry = ({ userID }) => {
       </form>
       <div>
         <a href="https://twitter.com/" alt="twitter">
-          Twitter  |
+          Twitter |
         </a>
         <a href="https://facebook.com/" alt="Facebook">
-          Facebook  |
+          Facebook |
         </a>
         <a href="https://instagram.com/" alt="Instagram">
           Instagram

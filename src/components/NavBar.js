@@ -9,15 +9,14 @@ const NavBar = () => {
     <div className="navbar">
       <div className="navbar-logo">
         <img src={logo} alt="app-logo" className="navbar-logo" />
-      </div>  
-        <div className="navbar-links">
-      
+      </div>
+      <div className="navbar-links">
         <Link to="/add-trade-entry">Add Trade Entry </Link>
         <Link to="/my-trades">My Trades </Link>
-        </div>
+      </div>
       <div className="right-content">
         <AuthDetails />
-    </div>
+      </div>
     </div>
   );
 };

@@ -110,48 +110,47 @@
 }
 
 .trade-observation {
-    display: block;
-    margin-top: 8px;
-    text-align: center;
-    color: #333;
-    background-color: rgba(206, 212, 218, 0.8);
-    padding: 8px;
-    border-radius: 4px;
-    font-style: italic;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+  color: #333;
+  background-color: rgba(206, 212, 218, 0.8);
+  padding: 8px;
+  border-radius: 4px;
+  font-style: italic;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .trade-observation-input {
-    width: 100%;
-    height: 120px;
-    resize: vertical;
+  width: 100%;
+  height: 120px;
+  resize: vertical;
 }
 
 .trade-open-date {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .my-trades-page-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #27ae60;
-    font-weight: bold;
-    
-  }
-  
-  .social-media-footer {
-    margin-top: 10px;
-  }
-  
-  .social-media-footer a {
-    text-decoration: none;
-    color: #27ae60;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.social-media-footer {
+  margin-top: 10px;
+}
+
+.social-media-footer a {
+  text-decoration: none;
+  color: #27ae60;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

@@ -28,30 +28,30 @@ const SignIn = () => {
         <h1>Log In to your Account</h1>
         <label className="email-label">
           Email Address
-        <input
-          type="email"
-          required
-          placeholder="user@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
+          <input
+            type="email"
+            required
+            placeholder="user@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
         </label>
         <label className="password-label">
           Password
-        <input
-          type="password"
-          required
-          minLength="10"
-          maxLength="50"
-          placeholder="10-50 characters"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
+          <input
+            type="password"
+            required
+            minLength="10"
+            maxLength="50"
+            placeholder="10-50 characters"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
         </label>
         <button type="submit">Log In</button>
       </form>
       <div className="not-registered">
-      <Link to="/sign-up">Not registered? Sign up here </Link>
+        <Link to="/sign-up">Not registered? Sign up here </Link>
       </div>
       <div className="social-media">
         <a href="https://twitter.com/" alt="twitter">
