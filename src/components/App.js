@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faTwitter,
+  faFacebook,
+  faInstagramSquare,
+} from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import "../styles/app.css";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
@@ -54,5 +61,7 @@ const App = () => {
     </Router>
   );
 };
+
+library.add(fas, faTwitter, faFacebook, faInstagramSquare);
 
 export default App;
