@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "./Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../styles/addTradeEntry.css";
+import "../styles/addTrades1.css";
 
 const AddTradeEntry = ({ userID }) => {
   const initialState = {
@@ -64,11 +64,12 @@ const AddTradeEntry = ({ userID }) => {
   return (
     <div className="add-trades-wrapper">
       <div className="add-trades-container">
-        <form onSubmit={handleAddTrade}>
+        <form className="form" onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
-          <label className="label" htmlFor="currency_crypto">
+          <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
             <select
+              className="label1"
               type="text"
               required
               id="currency_crypto"
@@ -96,9 +97,10 @@ const AddTradeEntry = ({ userID }) => {
               <option value="Solana">Solana</option>
             </select>
           </label>
-          <label className="label" htmlFor="trade_direction">
+          <label className="label2" htmlFor="trade_direction">
             Trade Direction
             <select
+              className="label2"
               type="text"
               required
               id="trade_direction"
@@ -112,9 +114,10 @@ const AddTradeEntry = ({ userID }) => {
               <option value="Short">Short</option>
             </select>
           </label>
-          <label className="label" htmlFor="trade_outcome">
+          <label className="label3" htmlFor="trade_outcome">
             Trade Outcome
             <select
+              className="label3"
               type="text"
               required
               id="trade_outcome"
@@ -127,7 +130,7 @@ const AddTradeEntry = ({ userID }) => {
               <option value="Lose">Lose</option>
             </select>
           </label>
-          <label className="label" htmlFor="trade_open_date">
+          <label className="label4" htmlFor="trade_open_date">
             Trade Open Date
             <input
               type="date"
@@ -139,7 +142,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="label" htmlFor="trade_open_time">
+          <label className="label5" htmlFor="trade_open_time">
             Trade Open Time
             <input
               type="time"
@@ -150,7 +153,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="label" htmlFor="trade_close_date">
+          <label className="label6" htmlFor="trade_close_date">
             Trade Close Date
             <input
               type="date"
@@ -162,7 +165,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="label" htmlFor="trade_close_time">
+          <label className="label7" htmlFor="trade_close_time">
             Trade Close Time
             <input
               type="time"
@@ -173,7 +176,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="label" htmlFor="entry_price">
+          <label className="label8" htmlFor="entry_price">
             Entry Price
             <input
               type="number"
@@ -184,7 +187,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="label" htmlFor="exit_price">
+          <label className="label9" htmlFor="exit_price">
             Exit Price
             <input
               type="number"
@@ -195,9 +198,10 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="label" htmlFor="observations">
+          <label className="label10" htmlFor="observations">
             Observations
             <input
+              className="observations-field"
               type="text"
               placeholder="Maximum 500 characters"
               maxLength="500"
@@ -207,11 +211,11 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <button type="submit" className="add-trade__submit-button">
-            {" "}
-            Submit
-          </button>
         </form>
+        <button type="submit" className="add-trade__submit-button">
+          {" "}
+          Submit
+        </button>
         <div>
           <a href="https://twitter.com/" alt="twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" /> |

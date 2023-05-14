@@ -18,6 +18,8 @@
   align-items: center;
   justify-content: center;
   min-height: 400px; /* Adjust the height as needed */
+  float: left;
+  width: 50%;
 }
 
 .add-trades-container form {

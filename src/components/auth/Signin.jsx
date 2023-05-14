@@ -26,7 +26,7 @@ const SignIn = () => {
     <div className="sign-in-page-wrapper">
       <div className="sign-in-container">
         <form onSubmit={signIn}>
-          <img class="sign-in-image" src={logo} alt="app-logo" />
+          <img className="sign-in-image" src={logo} alt="app-logo" />
           <label className="label">
             Email Address
             <input
