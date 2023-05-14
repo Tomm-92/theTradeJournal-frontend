@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/avault.png";
+import logo from "../images/tradejournal.png";
 import AuthDetails from "./authDetails";
 import "../styles/navbar.css";
 

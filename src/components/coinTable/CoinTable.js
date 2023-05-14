@@ -22,7 +22,7 @@ export default function CoinTable() {
           <TableHead>
             <TableRow>
               <TableCell>#</TableCell>
-              <TableCell>name</TableCell>
+              <TableCell>Crypto Name</TableCell>
               <TableCell align="right">Price</TableCell>
               <TableCell align="right">24h %</TableCell>
               <TableCell align="right">7d %</TableCell>

@@ -4,40 +4,86 @@
   padding: 0;
 }
 
+.page {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 2fr;
+}
+
+.twitter {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  max-width: 400px;
+}
+
+.twitter-timeline {
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.coin-table {
+  margin-left: 1px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  border-radius: 15px;
+}
+
+.App {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
 body {
-  font-family: sans-serif;
   padding: 0 2em;
 }
 
-.title {
+.article-title {
   text-align: center;
   margin: 2em 0;
   font-size: 4em;
 }
 
 .menu {
-  display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu li {
-  display: inline-block;
+  display: table-cell;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 1em;
+  margin-right: 3px;
   font-size: 1.2em;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em;
   background: #eee;
   border-radius: 3em;
   cursor: pointer;
   transition: 0.3s;
+  width: 135px;
 }
 
 .menu .inactive {
-  background: #eee;
+  background: #fff;
 }
 
 .menu .active {
-  background: #ccc;
+  color: white;
+  background: black;
 }
 
 .menu .active:hover {
@@ -45,24 +91,26 @@ body {
 }
 
 .menu .inactive:hover {
-  background: #dddddd;
+  color: white;
+  background: black;
 }
 
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2em;
+  grid-gap: 1em;
   justify-content: center;
   justify-items: center;
-  max-width: 1100px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 2.5em;
+  margin-top: 0;
+  padding-top: 1em;
 }
 
 .article {
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 25em;
+  width: 20em;
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
@@ -83,7 +131,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1em;
+  gap: 0.5em;
   flex-grow: 1;
 }
 
@@ -91,7 +139,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.25em;
 }
 
 .article-image {
