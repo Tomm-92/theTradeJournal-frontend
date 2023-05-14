@@ -12,6 +12,13 @@ const Dashboard = () => {
     palette: {
       mode: "dark",
     },
+    typography: {
+      fontFamily: `"Nunito", "Helvetica", "Arial", sans-serif`,
+      fontSize: 16,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 800,
+    },
   });
 
   const [items, setItems] = useState([]);

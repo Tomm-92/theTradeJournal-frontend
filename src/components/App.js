@@ -8,7 +8,6 @@ import {
   faInstagramSquare,
 } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import "../styles/app.css";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
 import MyTrades from "./MyTrades";
