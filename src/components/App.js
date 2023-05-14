@@ -16,6 +16,7 @@ import Signin from "./auth/Signin.jsx";
 import SignUp from "./auth/SignUp.jsx";
 import Dashboard from "./Dashboard";
 import { auth } from "../firebase";
+import FilterTwo from "./FilterTwo";
 
 const App = () => {
   const [user, setUser] = useState(null);

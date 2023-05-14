@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/mytrades.css";
+import FilterTwo from "./FilterTwo";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
@@ -11,7 +12,7 @@ const MyTrades = () => {
   const location = useLocation();
 
   const getTrades = async () => {
-    const response = await Axios.get("http://localhost:3000/tradeHistory");
+    const response = await Axios.get(`http://localhost:3000/tradeHistory/`);
     setTrades(
       response.data.sort(
         (tradeA, tradeB) =>
@@ -97,6 +98,7 @@ const MyTrades = () => {
 
   return (
     <>
+      <FilterTwo />
       <div className="card-parent">
         {trades.map((trade) => (
           <div className="card" key={trade.id}>
