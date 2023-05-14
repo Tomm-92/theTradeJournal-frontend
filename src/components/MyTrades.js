@@ -7,6 +7,7 @@ import "../styles/mytrades.css";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [firebaseUid, setFirebaseUid] = useState("");
   const [updatedFields, setUpdatedFields] = useState({});
   const [trades, setTrades] = useState("");
