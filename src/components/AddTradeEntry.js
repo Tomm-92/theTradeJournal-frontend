@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "./Alert";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/addTradeEntry.css";
 
 const AddTradeEntry = ({ userID }) => {
@@ -213,13 +214,13 @@ const AddTradeEntry = ({ userID }) => {
       </form>
       <div>
         <a href="https://twitter.com/" alt="twitter">
-          Twitter |
+          <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
         </a>
         <a href="https://facebook.com/" alt="Facebook">
-          Facebook |
+          <FontAwesomeIcon icon="fa-brands fa-facebook" /> |
         </a>
         <a href="https://instagram.com/" alt="Instagram">
-          Instagram
+          <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
         </a>
       </div>
     </div>

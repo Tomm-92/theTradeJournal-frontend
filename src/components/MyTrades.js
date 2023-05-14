@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/mytrades.css";
 
 const MyTrades = () => {
@@ -253,13 +254,13 @@ const MyTrades = () => {
       <div className="my-trades-page-footer">
         <div className="social-media-footer">
           <a href="https://twitter.com/" alt="twitter">
-            Twitter |
+            <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
           </a>
           <a href="https://facebook.com/" alt="Facebook">
-            Facebook |
+            <FontAwesomeIcon icon="fa-brands fa-facebook" /> |
           </a>
           <a href="https://instagram.com/" alt="Instagram">
-            Instagram
+            <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
           </a>
         </div>
       </div>
