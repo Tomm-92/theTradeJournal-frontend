@@ -9,20 +9,34 @@ const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
   const [updatedFields, setUpdatedFields] = useState({});
   const [trades, setTrades] = useState("");
+  const [currencies, setCurrencies] = useState([]);
+  const [id, setID] = useState([]);
   const location = useLocation();
 
+  console.log(id);
+
+  const getFilteredTrades = async () => {
+    const response = await Axios.get(
+      `http://localhost:3000/tradeHistory/${id}`
+    );
+    setCurrencies(response.data);
+    console.log(response);
+  };
+
   const getTrades = async () => {
-    const response = await Axios.get(`http://localhost:3000/tradeHistory/`);
+    const response = await Axios.get("http://localhost:3000/tradeHistory/14");
     setTrades(
       response.data.sort(
         (tradeA, tradeB) =>
           new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
-      )
+      ),
+      console.log(response)
     );
   };
 
   useEffect(() => {
     getTrades();
+    getFilteredTrades();
   }, [location]);
 
   if (!trades || trades.length === 0) {
@@ -98,7 +112,20 @@ const MyTrades = () => {
 
   return (
     <>
-      <FilterTwo />
+      <div>
+        <select onChange={(e) => setID(e.target.value)}>
+          <option></option>
+          {currencies
+            ? currencies.map((trade) => {
+                return (
+                  <option key={trade.id} value={trade.id}>
+                    {trade.currency_crypto}
+                  </option>
+                );
+              })
+            : null}
+        </select>
+      </div>
       <div className="card-parent">
         {trades.map((trade) => (
           <div className="card" key={trade.id}>
