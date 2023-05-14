@@ -1,22 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Axios from "axios";
+import { getAuth } from "firebase/auth";
 import "../styles/mytrades.css";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
+  const [firebaseUid, setFirebaseUid] = useState("");
   const [updatedFields, setUpdatedFields] = useState({});
   const [trades, setTrades] = useState("");
   const location = useLocation();
 
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const { uid } = user;
+      console.log("User:", user);
+      console.log("Firebase UID:", uid);
+      setFirebaseUid(uid);
+      getTrades(uid);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (firebaseUid !== "") {
+      console.log("Fetching trades for UID:", firebaseUid);
+    }
+  }, [firebaseUid]);
+  
   const getTrades = async () => {
-    const response = await Axios.get("http://localhost:3000/tradeHistory");
-    setTrades(
-      response.data.sort(
-        (tradeA, tradeB) =>
-          new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
-      )
-    );
+    try {
+      console.log("FirebaseUIDgetTrades:", firebaseUid);
+      //const response = await Axios.get(`http://localhost:3000/tradehistory?firebase_uid=${firebaseUid}`);
+      const response = await Axios.get('http://localhost:3000/tradehistory', {
+        params: {
+          firebase_uid: firebaseUid,
+        },
+      });
+      console.log("API response:", response.data);
+      setTrades(response.data);
+    } catch (error) {
+      console.log("Error fetching trades:", error);
+    }
   };
 
   useEffect(() => {
@@ -56,10 +83,10 @@ const MyTrades = () => {
   const handleSaveUpdate = async (tradeId, updatedData) => {
     try {
       const { data: updatedTrade } = await Axios.patch(
-        `http://localhost:3000/tradeHistory/${tradeId}`,
-        updatedData
+        `http://localhost:3000/tradehistory/${tradeId}`,
+        {firebase_uid: firebaseUid, ...updatedData }
       );
-      console.log(updatedTrade);
+      console.log("updated trade:", updatedTrade);
 
       const updatedTrades = trades
         .map((trade) => {
@@ -206,7 +233,7 @@ const MyTrades = () => {
                     <span className="card-title">{trade.currency_crypto}</span>{" "}
                     | <span className="label-outcome">Trade Outcome: </span>
                     <span
-                      className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}
+                      className={`trade-outcome-${`trade-outcome-${trade.trade_outcome && trade.trade_outcome.toLowerCase()}`}`}
                     >
                       {trade.trade_outcome}
                     </span>{" "}

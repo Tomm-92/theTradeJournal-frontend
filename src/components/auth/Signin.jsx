@@ -13,8 +13,8 @@ const SignIn = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
-        console.log(userCredential.user.uid);
+        console.log("userCredential:", userCredential);
+        console.log("userCredential.user.id:", userCredential.user.uid);
       })
       .catch((error) => {
         console.log(error);
