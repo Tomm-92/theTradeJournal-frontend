@@ -20,6 +20,10 @@
   padding: 0;
 }
 
+.navbar h1:hover {
+  color: white;
+}
+
 .navbar-logo {
   width: 50%;
   height: 75%;

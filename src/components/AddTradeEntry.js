@@ -66,10 +66,9 @@ const AddTradeEntry = ({ userID }) => {
       <div className="add-trades-container">
         <form onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
-          <label className="co1" htmlFor="currency_crypto">
+          <label className="label" htmlFor="currency_crypto">
             Currency/Crypto
             <select
-              className="col1"
               type="text"
               required
               id="currency_crypto"
@@ -97,7 +96,7 @@ const AddTradeEntry = ({ userID }) => {
               <option value="Solana">Solana</option>
             </select>
           </label>
-          <label className="co1" htmlFor="trade_direction">
+          <label className="label" htmlFor="trade_direction">
             Trade Direction
             <select
               type="text"
@@ -113,7 +112,7 @@ const AddTradeEntry = ({ userID }) => {
               <option value="Short">Short</option>
             </select>
           </label>
-          <label className="co1" htmlFor="trade_outcome">
+          <label className="label" htmlFor="trade_outcome">
             Trade Outcome
             <select
               type="text"
@@ -128,7 +127,7 @@ const AddTradeEntry = ({ userID }) => {
               <option value="Lose">Lose</option>
             </select>
           </label>
-          <label className="col1" htmlFor="trade_open_date">
+          <label className="label" htmlFor="trade_open_date">
             Trade Open Date
             <input
               type="date"
@@ -140,7 +139,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="col1" htmlFor="trade_open_time">
+          <label className="label" htmlFor="trade_open_time">
             Trade Open Time
             <input
               type="time"
@@ -151,7 +150,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="col1" htmlFor="trade_close_date">
+          <label className="label" htmlFor="trade_close_date">
             Trade Close Date
             <input
               type="date"
@@ -163,7 +162,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="col1" htmlFor="trade_close_time">
+          <label className="label" htmlFor="trade_close_time">
             Trade Close Time
             <input
               type="time"
@@ -174,7 +173,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="col2" htmlFor="entry_price">
+          <label className="label" htmlFor="entry_price">
             Entry Price
             <input
               type="number"
@@ -185,7 +184,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="col2" htmlFor="exit_price">
+          <label className="label" htmlFor="exit_price">
             Exit Price
             <input
               type="number"
@@ -196,7 +195,7 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <label className="col2" htmlFor="observations">
+          <label className="label" htmlFor="observations">
             Observations
             <input
               type="text"
