@@ -7,6 +7,8 @@ const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
   const [updatedFields, setUpdatedFields] = useState({});
   const [trades, setTrades] = useState("");
+  const [category, setCategory] = useState("All");
+  const [val, setVal] = useState("");
   const location = useLocation();
 
   const getTrades = async () => {
@@ -20,8 +22,8 @@ const MyTrades = () => {
   };
 
   useEffect(() => {
-    getTrades();
-  }, [location]);
+    getTrades(category);
+  }, [location, category]);
 
   if (!trades || trades.length === 0) {
     return null;
@@ -94,8 +96,68 @@ const MyTrades = () => {
     }
   };
 
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
   return (
     <>
+      <div className="select-parent">
+        <div className="select-child">
+          <select value={val} onChange={(e) => setVal(e.target.value)}>
+            <option value=""></option>
+            <option>Select</option>
+            <option value="EUR/USD">EUR/USD</option>
+            <option value="USD/JPY">USD/JPY</option>
+            <option value="GBP/USD">GBP/USD</option>
+            <option value="USD/CHF">USD/CHF</option>
+            <option value="USD/CAD">USD/CAD</option>
+            <option value="AUD/USD">AUD/USD</option>
+            <option value="NZD/USD">NZD/USD</option>
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="Tether">Tether</option>
+            <option value="BNB">BNB</option>
+            <option value="USD Coin">USD Coin</option>
+            <option value="XRP">XRP</option>
+            <option value="Cardano">Cardano</option>
+            <option value="Dogecoin">Dogecoin</option>
+            <option value="Polygon">Polygon</option>
+            <option value="Solana">Solana</option>
+          </select>
+          <h1>{val}</h1>
+        </div>
+      </div>
+      <div className="category-filter">
+        <form>
+          <label htmlFor="category-filter">Filter</label>
+          <select
+            id="category-filter"
+            name="category"
+            value={category}
+            onChange={handleCategoryChange}
+          >
+            <option value="All">All</option>
+            <option value="EUR/USD">EUR/USD</option>
+            <option value="USD/JPY">USD/JPY</option>
+            <option value="GBP/USD">GBP/USD</option>
+            <option value="USD/CHF">USD/CHF</option>
+            <option value="USD/CAD">USD/CAD</option>
+            <option value="AUD/USD">AUD/USD</option>
+            <option value="NZD/USD">NZD/USD</option>
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="Tether">Tether</option>
+            <option value="BNB">BNB</option>
+            <option value="USD Coin">USD Coin</option>
+            <option value="XRP">XRP</option>
+            <option value="Cardano">Cardano</option>
+            <option value="Dogecoin">Dogecoin</option>
+            <option value="Polygon">Polygon</option>
+            <option value="Solana">Solana</option>
+          </select>
+        </form>
+      </div>
       <div className="card-parent">
         {trades.map((trade) => (
           <div className="card" key={trade.id}>

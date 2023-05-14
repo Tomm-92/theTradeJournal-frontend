@@ -9,6 +9,7 @@ import Signin from "./auth/Signin.jsx";
 import SignUp from "./auth/SignUp.jsx";
 import Dashboard from "./Dashboard";
 import { auth } from "../firebase";
+import DynamicSelectOption from "./DynamicSelectOption";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -50,6 +51,7 @@ const App = () => {
         />
         <Route path="/my-trades" element={<MyTrades />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/select" element={<DynamicSelectOption />} />
       </Routes>
     </Router>
   );
