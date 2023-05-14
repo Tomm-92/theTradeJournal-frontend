@@ -102,6 +102,10 @@ const MyTrades = () => {
       setTrades(updatedTrades);
 
       console.log("Trade updated successfully");
+      setTimeout(() => {
+        getTrades();
+      }, 100);
+      
     } catch (error) {
       console.log("Error updating trade:", error);
       console.log(tradeId);
