@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "./Alert";
+import ImportCSV from "./ImportCSV";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/addTrades1.css";
 import icon from "../images/iconblack.png";
@@ -69,6 +70,7 @@ const AddTradeEntry = ({ userID }) => {
         <img className="icon" src={icon} alt="app-logo" />
         <form className="form" onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
+          <ImportCSV />
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
             <select
