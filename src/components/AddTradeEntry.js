@@ -69,29 +69,9 @@ const AddTradeEntry = ({ userID }) => {
       header: true,
       skipEmptyLines: true,
       complete: function (results) {
-        console.log(results.data);
         setCSV(results.data);
       },
     });
-
-    axios
-      .post("http://localhost:3000/tradeHistory/", {
-        csv,
-        firebase_uid: userID,
-      })
-      .then(() => {
-        setAlert({
-          message: "Trade Added",
-          isSuccess: true,
-        });
-        setFields(initialState.fields);
-      })
-      .catch(() =>
-        setAlert({
-          message: "Server error. Please come back later",
-          isSuccess: false,
-        })
-      );
   };
 
   return (
