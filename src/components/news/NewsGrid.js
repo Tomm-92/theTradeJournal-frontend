@@ -3,7 +3,7 @@ import NewsItem from "./NewsItem";
 const NewsGrid = ({ items }) => {
   return (
     <div className="news-grid">
-      {items.map((item, i) => (
+      {items && items.length > 0 && items.map((item, i) => (
         <NewsItem key={i} item={item} />
       ))}
     </div>
