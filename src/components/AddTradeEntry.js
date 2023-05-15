@@ -214,11 +214,12 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
+          <button type="submit" className="add-trade__submit-button">
+            {" "}
+            Submit
+          </button>
         </form>
-        <button type="submit" className="add-trade__submit-button">
-          {" "}
-          Submit
-        </button>
+
         <div>
           <a href="https://twitter.com/" alt="twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
