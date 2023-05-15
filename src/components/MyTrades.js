@@ -4,13 +4,16 @@ import { getAuth } from "firebase/auth";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/mytrades.css";
+import Filter from "./Filter";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [firebaseUid, setFirebaseUid] = useState("");
   const [updatedFields, setUpdatedFields] = useState({});
-  const [trades, setTrades] = useState("");
+  const [trades, setTrades] = useState([]);
+  const [filteredTrades, setFilteredTrades] = useState(trades);
+  const [tradesToDisplay, setTradesToDisplay] = useState(trades);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,6 +28,11 @@ const MyTrades = () => {
       getTrades(uid);
     }
   }, [location]);
+
+  useEffect(() => {
+    setTradesToDisplay(filteredTrades);
+    console.log("Tradestodisplay", tradesToDisplay);
+  }, [filteredTrades, tradesToDisplay, trades]);
 
   const getTrades = async (firebaseUid) => {
     // console.log("heree:", firebaseUid);
@@ -119,8 +127,9 @@ const MyTrades = () => {
 
   return (
     <>
+      <Filter showFilteredTrades={setFilteredTrades} />
       <div className="card-parent">
-        {trades.map((trade) => (
+        {filteredTrades.map((trade) => (
           <div className="card" key={trade.id}>
             <div className="card-body">
               {editingTradeId === trade.id ? (
