@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Papa from "papaparse";
 import Alert from "./Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/addTrades1.css";
@@ -27,6 +28,7 @@ const AddTradeEntry = ({ userID }) => {
 
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
+  const [csv, setCSV] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -57,10 +59,39 @@ const AddTradeEntry = ({ userID }) => {
       );
   };
 
-  //move this to a requests folder and can then test the individual function
-
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const changeHandler = (event) => {
+    // Passing file data (event.target.files[0]) to parse using Papa.parse
+    Papa.parse(event.target.files[0], {
+      header: true,
+      skipEmptyLines: true,
+      complete: function (results) {
+        console.log(results.data);
+        setCSV(results.data);
+      },
+    });
+
+    axios
+      .post("http://localhost:3000/tradeHistory/", {
+        csv,
+        firebase_uid: userID,
+      })
+      .then(() => {
+        setAlert({
+          message: "Trade Added",
+          isSuccess: true,
+        });
+        setFields(initialState.fields);
+      })
+      .catch(() =>
+        setAlert({
+          message: "Server error. Please come back later",
+          isSuccess: false,
+        })
+      );
   };
 
   return (
@@ -69,6 +100,15 @@ const AddTradeEntry = ({ userID }) => {
         <img className="icon" src={icon} alt="app-logo" />
         <form className="form" onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
+          <div>
+            <input
+              type="file"
+              name="file"
+              accept=".csv"
+              onChange={changeHandler}
+              style={{ display: "block", margin: "10px auto" }}
+            />
+          </div>
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
             <select
