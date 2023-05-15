@@ -3,6 +3,7 @@ import axios from "axios";
 import Alert from "./Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/addTrades1.css";
+import icon from "../images/iconblack.png";
 
 const AddTradeEntry = ({ userID }) => {
   const initialState = {
@@ -64,6 +65,7 @@ const AddTradeEntry = ({ userID }) => {
   return (
     <div className="add-trades-wrapper">
       <div className="add-trades-container">
+        <img className="icon" src={icon} alt="app-logo" />
         <form className="form" onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
           <label className="label1" htmlFor="currency_crypto">
