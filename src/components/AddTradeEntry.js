@@ -36,6 +36,7 @@ const AddTradeEntry = ({ userID }) => {
 
   const handleAddTrade = (event) => {
     event.preventDefault();
+    console.log("User ID:", userID);
     axios
       .post("http://localhost:3000/tradeHistory/", {
         ...fields,

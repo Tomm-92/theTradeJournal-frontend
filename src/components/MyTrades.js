@@ -1,17 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/mytrades.css";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [firebaseUid, setFirebaseUid] = useState("");
   const [updatedFields, setUpdatedFields] = useState({});
   const [trades, setTrades] = useState("");
   const location = useLocation();
 
-  const getTrades = async () => {
-    const response = await Axios.get("http://localhost:3000/tradeHistory");
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const { uid } = user;
+      //console.log("User:", user);
+      setFirebaseUid(uid);
+      //console.log("Firebase UID:", uid);
+      getTrades(uid);
+    }
+  }, [location]);
+
+  const getTrades = async (firebaseUid) => {
+    // console.log("heree:", firebaseUid);
+    const response = await Axios.get("http://localhost:3000/tradehistory", {
+      params: {
+        firebase_uid: firebaseUid,
+      },
+    });
+    console.log("API response:", response.data);
     setTrades(
       response.data.sort(
         (tradeA, tradeB) =>
@@ -20,9 +42,9 @@ const MyTrades = () => {
     );
   };
 
-  useEffect(() => {
-    getTrades();
-  }, [location]);
+  // useEffect(() => {
+  //   getTrades(firebaseUid);
+  // }, [location]);
 
   if (!trades || trades.length === 0) {
     return null;
