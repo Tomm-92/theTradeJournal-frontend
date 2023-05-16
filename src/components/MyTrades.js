@@ -20,21 +20,18 @@ const MyTrades = () => {
 
     if (user) {
       const { uid } = user;
-      //console.log("User:", user);
       setFirebaseUid(uid);
-      //console.log("Firebase UID:", uid);
       getTrades(uid);
     }
   }, [location]);
 
   const getTrades = async (firebaseUid) => {
-    // console.log("heree:", firebaseUid);
     const response = await Axios.get("http://localhost:3000/tradehistory", {
       params: {
         firebase_uid: firebaseUid,
       },
     });
-    console.log("API response:", response.data);
+
     setTrades(
       response.data.sort(
         (tradeA, tradeB) =>
@@ -42,10 +39,6 @@ const MyTrades = () => {
       )
     );
   };
-
-  // useEffect(() => {
-  //   getTrades(firebaseUid);
-  // }, [location]);
 
   if (!trades || trades.length === 0) {
     return null;
