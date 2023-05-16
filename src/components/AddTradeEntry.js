@@ -69,11 +69,11 @@ const AddTradeEntry = ({ userID }) => {
   };
 
   const uploadToServer = () => {
-    return axios.post(
-      "http://localhost:3000/tradehistory/csv/upload",
-      data,
-      {}
-    );
+    return axios.post("http://localhost:3000/tradehistory/csv/upload", data, {
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
   };
 
   return (
