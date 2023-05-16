@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/mytrades.css";
+import icon from "../images/iconblack.png";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
@@ -200,7 +201,7 @@ const MyTrades = () => {
                     }
                   />
                   <label htmlFor={`observations_${trade.id}`}>
-                    Observations:
+                    Observation:
                   </label>
                   <textarea
                     id={`observations_${trade.id}`}
@@ -222,6 +223,7 @@ const MyTrades = () => {
               ) : (
                 <>
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
+                  <img className="icon" src={icon} alt="app-logo" />
                   <p className="card-text">
                     <span className="label-currency">
                       Currency Pair/Crypto:{"  "}

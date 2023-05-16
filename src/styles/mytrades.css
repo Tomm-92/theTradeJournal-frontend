@@ -15,6 +15,12 @@
   cursor: pointer;
 }
 
+.delete-button:hover,
+.edit-button:hover,
+.save-button:hover {
+  background-color: black;
+}
+
 .edit-button {
   margin-right: 10px;
 }
@@ -25,19 +31,13 @@
   right: 10px;
 }
 
-.edit-button:hover,
-.delete-button:hover,
-.save-button:hover {
-  opacity: 0.8;
-}
-
 .card-text .label,
 .card-text .label-outcome,
 .card-text .label-currency,
 .card-text .entry-price,
 .card-text .exit-price,
 .card-text .trade-close-date {
-  margin-right: 5px; /* Adjust the spacing between keys and values */
+  margin-right: 5px;
 }
 
 .card {
@@ -45,6 +45,7 @@
   border: 1px solid #ced4da;
   border-radius: 7px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .card-body {
@@ -59,10 +60,6 @@
   position: relative;
   line-height: 1.5;
 }
-
-/* .card-text span {
-  display: inline-block;
-} */
 
 .card-title {
   font-size: 18px;
@@ -80,6 +77,13 @@
   font-size: 14px;
   margin-bottom: 0;
   position: relative;
+}
+
+.icon {
+  display: block;
+  margin: 0 auto;
+  width: 25px;
+  height: 25px;
 }
 
 .label,
