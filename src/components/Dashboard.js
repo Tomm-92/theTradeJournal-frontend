@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Table from "./coinTable/CoinTable";
-import "../styles/coinTable.css";
 import "../styles/dashboard.css";
 import Menu from "./news/Menu";
 import NewsGrid from "./news/NewsGrid";
@@ -14,7 +13,7 @@ const Dashboard = () => {
     },
     typography: {
       fontFamily: `"Nunito", "Helvetica", "Arial", sans-serif`,
-      fontSize: 16,
+      fontSize: 14,
       fontWeightLight: 300,
       fontWeightRegular: 400,
       fontWeightMedium: 800,

@@ -5,6 +5,7 @@
 }
 
 .page {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 400px 1fr;
   grid-template-rows: 2fr;
@@ -16,6 +17,9 @@
   grid-row-start: 1;
   grid-row-end: 3;
   max-width: 400px;
+  background-color: #f4f4f4;
+  padding: 4px;
+  border-radius: 15px;
 }
 
 .twitter-timeline {
@@ -29,15 +33,14 @@
   grid-column-start: 2;
   grid-column-end: 3;
   border-radius: 15px;
+  background-color: #f4f4f4;
+  padding: 4px;
+  margin: 5px;
 }
 
 .App {
   grid-column-start: 2;
   grid-column-end: 3;
-}
-
-body {
-  padding: 0 2em;
 }
 
 .article-title {
