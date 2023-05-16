@@ -6,8 +6,9 @@
 
 .page {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 350px 1fr;
   grid-template-rows: 2fr;
+  margin-top: 7.5px;
 }
 
 .twitter {
@@ -30,13 +31,11 @@
   grid-row-start: 1;
   grid-column-start: 2;
   grid-column-end: 3;
-  border-radius: 15px;
   background-color: #f4f4f4;
   padding: 10px;
-  margin: 10px;
+  margin-left: 15px;
   border-radius: 15px;
   height: fit-content;
-  border: solid red 1px;
 }
 
 .App {
@@ -44,10 +43,10 @@
   grid-column-end: 3;
   background-color: #f4f4f4;
   padding: 10px;
-  margin: 10px;
+  margin-left: 15px;
+  margin-top: 15px;
   border-radius: 15px;
   height: fit-content;
-  border: solid red 1px;
 }
 
 .article-title {
@@ -80,31 +79,26 @@
   margin-right: 3px;
   font-size: 1.2em;
   padding: 0.5em 0.5em;
-  background: #eee;
   border-radius: 3em;
   cursor: pointer;
   transition: 0.3s;
   width: 135px;
   border: solid 3px black;
-  background-color: white;
 }
 
 .menu .inactive {
-  background: #fff;
+  background: black;
+  color: white;
 }
 
 .menu .active {
-  color: white;
-  background: black;
-}
-
-.menu .active:hover {
-  background: #aeaeae;
+  color: black;
+  background: white;
 }
 
 .menu .inactive:hover {
-  color: white;
-  background: black;
+  color: black;
+  background-color: white;
 }
 
 .news-grid {

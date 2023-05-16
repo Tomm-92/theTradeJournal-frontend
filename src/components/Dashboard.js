@@ -40,8 +40,8 @@ const Dashboard = () => {
             className="twitter-timeline"
             data-theme="dark"
             href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
-            data-width="385"
-            data-height="1280"
+            data-width="350"
+            data-height="1510"
           >
             Tweets by Newsquawk
           </a>{" "}
