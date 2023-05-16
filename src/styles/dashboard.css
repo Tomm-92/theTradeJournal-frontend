@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 350px 1fr;
   grid-template-rows: 2fr;
-  margin-top: 7.5px;
+  margin-top: 5px;
 }
 
 .twitter {
@@ -42,10 +42,12 @@
   grid-column-start: 2;
   grid-column-end: 3;
   background-color: #f4f4f4;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-left: 15px;
   margin-top: 15px;
   border-radius: 15px;
+  margin-bottom: 0;
   height: fit-content;
 }
 
@@ -60,7 +62,7 @@
   align-items: center;
   list-style: none;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 0px;
 }
 
@@ -104,7 +106,7 @@
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
+  grid-gap: 0.5em;
   justify-content: center;
   justify-items: center;
   min-width: 700px;
@@ -115,17 +117,19 @@
 
 .article {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 20em;
+  min-width: 20em;
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  color: #000;
+  color: white;
   border: solid 3px black;
-  background-color: white;
+  background-color: black;
   padding-bottom: 0.5em;
   transition: 0.3s;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
 .article:hover {
@@ -163,6 +167,16 @@ article:hover .article-image img {
 .article p {
   line-height: 25px;
   color: #555;
+}
+
+.image-wrapper {
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+}
+
+.image-news {
+  margin: 7.5px;
 }
 
 @media screen and (max-width: 1330px) {
