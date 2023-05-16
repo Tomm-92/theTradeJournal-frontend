@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Papa from "papaparse";
 import Alert from "./Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/addTrades1.css";
@@ -28,7 +27,6 @@ const AddTradeEntry = ({ userID }) => {
 
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
-  const [csv, setCSV] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -63,15 +61,19 @@ const AddTradeEntry = ({ userID }) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
-  const changeHandler = (event) => {
-    // Passing file data (event.target.files[0]) to parse using Papa.parse
-    Papa.parse(event.target.files[0], {
-      header: true,
-      skipEmptyLines: true,
-      complete: function (results) {
-        setCSV(results.data);
-      },
-    });
+  const [data, setData] = useState();
+
+  const handleUpload = (e) => {
+    setData(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+
+  const uploadToServer = () => {
+    return axios.post(
+      "http://localhost:3000/tradehistory/csv/upload",
+      data,
+      {}
+    );
   };
 
   return (
@@ -81,13 +83,13 @@ const AddTradeEntry = ({ userID }) => {
         <form className="form" onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
           <div>
-            <input
-              type="file"
-              name="file"
-              accept=".csv"
-              onChange={changeHandler}
-              style={{ display: "block", margin: "10px auto" }}
-            />
+            <label className="btn btn-default">
+              <input type={"file"} accept={".csv"} onChange={handleUpload} />
+            </label>
+
+            <button className="btn btn-success" onClick={uploadToServer}>
+              Upload
+            </button>
           </div>
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
@@ -239,7 +241,6 @@ const AddTradeEntry = ({ userID }) => {
             Submit
           </button>
         </form>
-
         <div>
           <a href="https://twitter.com/" alt="twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
