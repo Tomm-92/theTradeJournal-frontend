@@ -223,7 +223,7 @@ const MyTrades = () => {
               ) : (
                 <>
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
-                  <img className="icon" src={icon} alt="app-logo" />
+                  <img className="icon-mytrades" src={icon} alt="app-logo" />
                   <p className="card-text">
                     <span className="label-currency">
                       Currency Pair/Crypto:{"  "}
