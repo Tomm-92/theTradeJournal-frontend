@@ -84,7 +84,7 @@
   margin-bottom: 0.5em;
   margin-right: 3px;
   margin-left: 3px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   padding: 0.5em 0.5em;
   border-radius: 3em;
   cursor: pointer;
@@ -94,7 +94,7 @@
 }
 
 .menu .inactive {
-  background: black;
+  background: #121212;
   color: white;
 }
 
@@ -107,6 +107,7 @@
 .menu .inactive:hover {
   color: black;
   background-color: white;
+  font-weight: bold;
 }
 
 .news-grid {
@@ -129,7 +130,7 @@
   text-decoration: none;
   color: white;
   border: solid 3px black;
-  background-color: black;
+  background-color: #121212;
   padding-bottom: 1em;
   transition: 0.3s;
   display: flex;

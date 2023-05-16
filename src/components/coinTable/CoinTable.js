@@ -18,7 +18,25 @@ export default function CoinTable() {
   return (
     <Paper>
       <TableContainer>
-        <Table sx={{ minWidth: 700, "& td": { fontWeight: 600 } }}>
+        <TablePagination
+          className="crypto-row-selector"
+          component={"div"}
+          rowsPerPageOptions={[5, 10, 20]}
+          rowsPerPage={rowsPerPage}
+          onRowsPerPageChange={(e) => {
+            setRowsPerPage(parseInt(e.target.value));
+            setPage(0);
+          }}
+          count={dataLength}
+          page={page}
+          onPageChange={(e, newPage) => {
+            setPage(newPage);
+          }}
+        />
+        <Table
+          className="coin-table-content"
+          sx={{ minWidth: 700, "& td": { fontWeight: 600 } }}
+        >
           <TableHead>
             <TableRow>
               <TableCell>#</TableCell>
@@ -38,20 +56,6 @@ export default function CoinTable() {
           />
         </Table>
       </TableContainer>
-      <TablePagination
-        component={"div"}
-        rowsPerPageOptions={[5, 10, 20]}
-        rowsPerPage={rowsPerPage}
-        onRowsPerPageChange={(e) => {
-          setRowsPerPage(parseInt(e.target.value));
-          setPage(0);
-        }}
-        count={dataLength}
-        page={page}
-        onPageChange={(e, newPage) => {
-          setPage(newPage);
-        }}
-      />
     </Paper>
   );
 }

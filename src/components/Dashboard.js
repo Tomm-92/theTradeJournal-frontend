@@ -15,8 +15,8 @@ const Dashboard = () => {
     typography: {
       fontFamily: `"Nunito", "Helvetica", "Arial", sans-serif`,
       fontSize: 14,
-      fontWeightLight: 300,
-      fontWeightRegular: 400,
+      fontWeightLight: 800,
+      fontWeightRegular: 900,
       fontWeightMedium: 800,
     },
   });
@@ -39,10 +39,10 @@ const Dashboard = () => {
         <div className="twitter">
           <a
             className="twitter-timeline"
-            data-theme="dark"
             href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
             data-width="350"
             data-height="1530"
+            data-chrome="transparent"
           >
             Tweets by Newsquawk
           </a>{" "}
