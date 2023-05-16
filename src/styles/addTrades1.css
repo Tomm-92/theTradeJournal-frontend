@@ -52,6 +52,8 @@
 .label1 {
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
   font-size: large;
   color: #22c489;
   font-weight: bold;
@@ -60,6 +62,8 @@
 .label2 {
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
   font-size: large;
   color: #22c489;
   font-weight: bold;
@@ -68,6 +72,8 @@
 .label3 {
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
   font-size: large;
   color: #22c489;
   font-weight: bold;
@@ -76,6 +82,8 @@
 .label4 {
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
   font-size: large;
   color: #22c489;
   font-weight: bold;
@@ -84,6 +92,8 @@
 .label5 {
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 6;
   font-size: large;
   color: #22c489;
   font-weight: bold;
@@ -92,6 +102,8 @@
 .label6 {
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 6;
+  grid-row-end: 7;
   font-size: large;
   color: #22c489;
   font-weight: bold;
@@ -133,15 +145,40 @@
 .label10 {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 10;
+  grid-row-start: 5;
+  grid-row-end: 7;
   font-size: large;
   color: #22c489;
   font-weight: bold;
   margin-left: 15px;
 }
 
-.add-trades-container button {
+.label11 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 9;
+  grid-row-end: 9;
+  font-size: large;
+  color: #22c489;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+/*#button1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 9;
+  grid-row-end: 10;
+}
+
+#button2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 9;
+  grid-row-end: 10;
+}*/
+
+.add-trade__submit-button {
   width: 75%;
   padding: 10px;
   background-color: #31c48d;
@@ -152,6 +189,8 @@
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 20px;
+  grid-row-start: 9;
+  grid-row-end: 10;
 }
 
 .add-trades-container a {

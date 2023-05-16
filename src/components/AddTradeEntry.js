@@ -73,14 +73,6 @@ const AddTradeEntry = ({ userID }) => {
         <img className="icon" src={icon} alt="app-logo" />
         <Alert message={alert.message} success={alert.isSuccess} />
         <form className="form" onSubmit={handleAddTrade}>
-          <div>
-            <label className="btn btn-default">
-              <input type={"file"} accept={".csv"} onChange={handleUpload} />
-            </label>
-            <button className="btn btn-success" onClick={uploadToServer}>
-              Upload
-            </button>
-          </div>
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
             <select
@@ -226,10 +218,22 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <button type="submit" className="add-trade__submit-button">
+          <button
+            type="submit"
+            className="add-trade__submit-button"
+            id="button1"
+          >
             {" "}
             Submit
           </button>
+          <div>
+            <label className="label11">
+              <input type={"file"} accept={".csv"} onChange={handleUpload} />
+            </label>
+            <button onClick={uploadToServer} id="button2">
+              Upload
+            </button>
+          </div>
         </form>
         <div>
           <a href="https://twitter.com/" alt="twitter">
