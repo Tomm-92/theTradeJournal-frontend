@@ -41,7 +41,7 @@ const Dashboard = () => {
             data-theme="dark"
             href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
             data-width="385"
-            data-height="1415"
+            data-height="1280"
           >
             Tweets by Newsquawk
           </a>{" "}
