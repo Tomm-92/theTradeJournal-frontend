@@ -1,0 +1,15 @@
+.alert-success {
+  color: #22c489;
+}
+
+.alert-error {
+  color: #ff7487;
+}
+
+.alert {
+  display: flex;
+  flex: column;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: larger;
+}
