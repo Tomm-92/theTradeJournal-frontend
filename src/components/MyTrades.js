@@ -24,7 +24,7 @@ const MyTrades = () => {
       const { uid } = user;
       //console.log("User:", user);
       setFirebaseUid(uid);
-      //console.log("Firebase UID:", uid);
+      console.log("Firebase UID:", uid);
       getTrades(uid);
     }
   }, [location]);
@@ -127,7 +127,7 @@ const MyTrades = () => {
 
   return (
     <>
-      <Filter showFilteredTrades={setFilteredTrades} />
+      <Filter showFilteredTrades={setFilteredTrades} userId={firebaseUid} />
       <div className="card-parent">
         {filteredTrades.map((trade) => (
           <div className="card" key={trade.id}>

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-const Filter = ({ showFilteredTrades }) => {
+const Filter = ({ showFilteredTrades, userId }) => {
   const [currencies, setCurrencies] = useState([]);
 
   const getFilteredTrades = async () => {
     const response = await Axios.get(
-      `http://localhost:3000/tradeHistory?firebase_uid=LuWXjwALnhNqYxk0bKuIoUXwJag2`
+      `http://localhost:3000/tradeHistory?firebase_uid=${userId}`
     );
     setCurrencies(response.data);
   };
