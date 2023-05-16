@@ -4,31 +4,22 @@
   margin-top: 10px;
 }
 
-.delete-button {
-  background-color: #27ae60;
+.delete-button,
+.edit-button,
+.save-button {
+  background-color: #22c489;
   color: #fff;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 7px;
   cursor: pointer;
 }
 
 .edit-button {
-  background-color: #34495e;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  margin-right: 10px;
 }
 
 .save-button {
-  background-color: #34495e;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -40,25 +31,21 @@
   opacity: 0.8;
 }
 
-.card {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  /* display: flex;
-  justify-content: center; */
+.card-text .label,
+.card-text .label-outcome,
+.card-text .label-currency,
+.card-text .entry-price,
+.card-text .exit-price,
+.card-text .trade-close-date {
+  margin-right: 5px; /* Adjust the spacing between keys and values */
 }
 
-/* .card-parent {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-  }
-  
-  .card {
-    width: calc(50% - 10px); 
-    margin-bottom: 20px;
-  } */
+.card {
+  background-color: #f4f4f4;
+  border: 1px solid #ced4da;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
 
 .card-body {
   padding: 15px;
@@ -66,9 +53,21 @@
   align-items: center;
 }
 
+.card-text {
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  line-height: 1.5;
+}
+
+/* .card-text span {
+  display: inline-block;
+} */
+
 .card-title {
   font-size: 18px;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .card-subtitle {
@@ -83,29 +82,40 @@
   position: relative;
 }
 
-.card-title {
+.label,
+.label-outcome,
+.label-currency {
+  font-size: larger;
   font-weight: bold;
 }
 
+.label-currency {
+  color: #22c489;
+}
+
+.label-outcome {
+  color: #22c489;
+}
+
 .trade-outcome-win {
-  color: green;
+  color: #22c489;
+  font-size: larger;
   font-weight: bold;
 }
 
 .trade-outcome-lose {
   color: red;
+  font-size: larger;
   font-weight: bold;
 }
 
-.entry-price {
-  font-weight: bold;
-}
-
-.exit-price {
-  font-weight: bold;
-}
-
+.entry-price,
+.exit-price,
 .trade-close-date {
+  font-weight: bold;
+}
+
+.trade-open-date {
   font-weight: bold;
 }
 
@@ -116,7 +126,7 @@
   color: #333;
   background-color: rgba(206, 212, 218, 0.8);
   padding: 8px;
-  border-radius: 4px;
+  border-radius: 7px;
   font-style: italic;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -126,10 +136,6 @@
   width: 100%;
   height: 120px;
   resize: vertical;
-}
-
-.trade-open-date {
-  font-weight: bold;
 }
 
 .my-trades-page-footer {

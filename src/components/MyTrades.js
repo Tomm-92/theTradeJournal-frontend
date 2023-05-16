@@ -224,7 +224,7 @@ const MyTrades = () => {
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
                   <p className="card-text">
                     <span className="label-currency">
-                      Currency Pair/Crypto:{" "}
+                      Currency Pair/Crypto:{"  "}
                     </span>
                     <span className="card-title">{trade.currency_crypto}</span>{" "}
                     | <span className="label-outcome">Trade Outcome: </span>
@@ -232,19 +232,21 @@ const MyTrades = () => {
                       className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}
                     >
                       {trade.trade_outcome}
-                    </span>{" "}
+                    </span>{"  "}
                     | <span className="label">Trade Open Date: </span>
                     <span className="trade-open-date">
                       {trade.trade_open_date}
-                    </span>{" "}
+                    </span>{"  "}
                     | <span className="label">Trade Close Date: </span>
                     <span className="trade-close-date">
                       {trade.trade_close_date}
-                    </span>{" "}
-                    | <span className="label">Entry Price: </span>
+                    </span>{"  "}
+                    | <br></br> 
+                    <span className="label">Entry Price: </span>
                     <span className="entry-price">
                       {trade.entry_price}
-                    </span> | <span className="label">Exit Price: </span>
+                    </span> | {" "} 
+                    <span className="label">Exit Price: </span>
                     <span className="exit-price">{trade.exit_price}</span>
                   </p>
                   <p className="card-text">
