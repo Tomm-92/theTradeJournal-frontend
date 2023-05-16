@@ -19,25 +19,6 @@ const Filter = ({ showFilteredTrades }) => {
     ...new Set(currencies.map((currency) => currency.currency_crypto)),
   ];
 
-  /*const handleDropdownValue = (e) => {
-    let newArray;
-    if (e.target.value === "Ethereum") {
-      newArray = currencies.filter(function (currency) {
-        return currency.currency_crypto === e.target.value;
-      });
-      console.log("newArray", newArray);
-      showFilteredTrades(newArray);
-    } else if (e.target.value === "EUR/USD") {
-      newArray = currencies.filter(function (currency) {
-        return currency.currency_crypto === e.target.value;
-      });
-      console.log("newArray", newArray);
-      showFilteredTrades(newArray);
-    } else {
-      showFilteredTrades(currencies);
-    }
-  };*/
-
   const handleDropdownValue = (e) => {
     let newArray;
     switch (e.target.value) {
