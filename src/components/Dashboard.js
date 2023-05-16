@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Table from "./coinTable/CoinTable";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/dashboard.css";
 import Menu from "./news/Menu";
 import NewsGrid from "./news/NewsGrid";
@@ -41,7 +42,7 @@ const Dashboard = () => {
             data-theme="dark"
             href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
             data-width="350"
-            data-height="1510"
+            data-height="1530"
           >
             Tweets by Newsquawk
           </a>{" "}
@@ -58,12 +59,25 @@ const Dashboard = () => {
         </div>
 
         <div className="App">
-          <NewsGrid items={items} />
           <Menu
             active={active}
             setActive={setActive}
             setCategory={setCategory}
           />
+          <NewsGrid items={items} />
+        </div>
+        <div className="dashboard-page-footer">
+          <div className="dashboard-media-footer">
+            <a href="https://twitter.com/" alt="twitter">
+              <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
+            </a>
+            <a href="https://facebook.com/" alt="Facebook">
+              <FontAwesomeIcon icon="fa-brands fa-facebook" /> |
+            </a>
+            <a href="https://instagram.com/" alt="Instagram">
+              <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
+            </a>
+          </div>
         </div>
       </div>
     </ThemeProvider>
