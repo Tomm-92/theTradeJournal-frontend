@@ -214,26 +214,37 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <button type="submit" className="add-trade__submit-button">
+          <label className="label11">
             {" "}
-            Submit
-          </button>
+            <button
+              type="submit"
+              className="add-trade__submit-button"
+              id="button1"
+            >
+              {" "}
+              Submit
+            </button>
+          </label>
+
+          <label className="label12">
+            <input type={"file"} accept={".csv"} />
+          </label>
+          <label className="label13">
+            <button id="button2">Upload</button>
+          </label>
         </form>
 
-        <div>
-          <a href="https://twitter.com/" alt="twitter">
-            <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
-          </a>
-          <a href="https://facebook.com/" alt="Facebook">
-            <FontAwesomeIcon icon="fa-brands fa-facebook" /> |
-          </a>
-          <a href="https://instagram.com/" alt="Instagram">
-            <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
-          </a>
-        </div>
+        <a href="https://twitter.com/" alt="twitter">
+          <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
+        </a>
+        <a href="https://facebook.com/" alt="Facebook">
+          <FontAwesomeIcon icon="fa-brands fa-facebook" /> |
+        </a>
+        <a href="https://instagram.com/" alt="Instagram">
+          <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
+        </a>
       </div>
     </div>
   );
 };
-
 export default AddTradeEntry;
