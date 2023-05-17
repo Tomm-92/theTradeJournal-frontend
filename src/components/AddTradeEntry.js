@@ -44,7 +44,7 @@ const AddTradeEntry = ({ userID }) => {
       })
       .then(() => {
         setAlert({
-          message: "Trade Added",
+          message: "Trade Added!",
           isSuccess: true,
         });
         setFields(initialState.fields);
@@ -89,8 +89,8 @@ const AddTradeEntry = ({ userID }) => {
     <div className="add-trades-wrapper">
       <div className="add-trades-container">
         <img className="icon" src={icon} alt="app-logo" />
+        <Alert message={alert.message} success={alert.isSuccess} />
         <form className="form" onSubmit={handleAddTrade}>
-          <Alert message={alert.message} success={alert.isSuccess} />
           <div>
             <label className="btn btn-default">
               <input type={"file"} accept={".csv"} onChange={handleUpload} />
