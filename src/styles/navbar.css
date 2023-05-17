@@ -4,6 +4,10 @@
   /* align-items: center; */
 }
 
+body {
+  padding: 0 2em;
+}
+
 .navbar {
   display: flex;
   align-items: center;

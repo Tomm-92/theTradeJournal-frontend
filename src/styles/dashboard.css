@@ -3,11 +3,15 @@
   margin: 0;
   padding: 0;
 }
+.scrollDiv {
+  max-height: 100vh;
+}
 
 .page {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 350px 1fr;
   grid-template-rows: 2fr;
+  margin-top: 5px;
 }
 
 .twitter {
@@ -15,7 +19,10 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  max-width: 400px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
 
 .twitter-timeline {
@@ -25,19 +32,27 @@
 }
 
 .coin-table {
-  margin-left: 1px;
+  grid-row-start: 1;
   grid-column-start: 2;
   grid-column-end: 3;
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-left: 20px;
   border-radius: 15px;
+  height: fit-content;
 }
 
 .App {
   grid-column-start: 2;
   grid-column-end: 3;
-}
-
-body {
-  padding: 0 2em;
+  background-color: #f4f4f4;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  min-height: 800px;
 }
 
 .article-title {
@@ -51,7 +66,6 @@ body {
   align-items: center;
   list-style: none;
   padding: 0;
-  margin-top: 10px;
   margin-bottom: 0px;
 }
 
@@ -67,58 +81,62 @@ body {
   align-items: center;
   text-align: center;
   margin: 1em;
+  margin-bottom: 0.5em;
   margin-right: 3px;
-  font-size: 1.2em;
+  margin-left: 3px;
+  font-size: 1.1em;
   padding: 0.5em 0.5em;
-  background: #eee;
   border-radius: 3em;
   cursor: pointer;
   transition: 0.3s;
   width: 135px;
+  border: solid 1px black;
 }
 
 .menu .inactive {
-  background: #fff;
+  background: #121212;
+  color: white;
 }
 
 .menu .active {
-  color: white;
-  background: black;
-}
-
-.menu .active:hover {
-  background: #aeaeae;
+  color: black;
+  background: white;
+  font-weight: bolder;
 }
 
 .menu .inactive:hover {
-  color: white;
-  background: black;
+  color: black;
+  background-color: white;
+  font-weight: bold;
 }
 
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
+  grid-gap: 0.5em;
   justify-content: center;
   justify-items: center;
-  min-width: 700px;
-  margin: 0 auto;
-  margin-top: 0;
+  min-height: 800px;
+  margin-bottom: 10px;
   padding-top: 1em;
 }
 
 .article {
-  background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 20em;
+  min-width: 20em;
+  min-height: 16em;
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  color: #000;
-  padding-bottom: 0.5em;
+  color: white;
+  border: solid 3px black;
+  background-color: #121212;
+  padding-bottom: 1em;
   transition: 0.3s;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
 .article:hover {
@@ -149,16 +167,6 @@ body {
   height: 15em;
 }
 
-.article-image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  transition: 0.7s ease-in-out;
-}
-
 article:hover .article-image img {
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -168,17 +176,33 @@ article:hover .article-image img {
   color: #555;
 }
 
-@media screen and (max-width: 1330px) {
-  html {
-    font-size: 14px;
-  }
-  .news-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.image-wrapper {
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
 }
 
-@media screen and (max-width: 900px) {
-  .news-grid {
-    grid-template-columns: 1fr;
-  }
+.image-news {
+  margin: 7.5px;
+}
+
+.dashboard-page-footer {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.dashboard-media-footer a {
+  text-decoration: none;
+  color: #27ae60;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

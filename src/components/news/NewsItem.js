@@ -11,10 +11,13 @@ const NewsItem = ({ item }) => {
     <a href={item.url} className="article">
       <div className="article-content">
         <div className="aricle-source">
-          <img
-            src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${website}&size=50`}
-            alt={item.source.id}
-          />
+          <div className="image-wrapper">
+            <img
+              className="image-news"
+              src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${website}&size=50`}
+              alt={item.source.id}
+            />
+          </div>
           <span>{item.source.name}</span>
         </div>
         <div className="aricle-title">

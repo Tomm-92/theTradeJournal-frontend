@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Table from "./coinTable/CoinTable";
-import "../styles/coinTable.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/dashboard.css";
 import Menu from "./news/Menu";
 import NewsGrid from "./news/NewsGrid";
@@ -14,16 +14,16 @@ const Dashboard = () => {
     },
     typography: {
       fontFamily: `"Nunito", "Helvetica", "Arial", sans-serif`,
-      fontSize: 16,
-      fontWeightLight: 300,
-      fontWeightRegular: 400,
+      fontSize: 14,
+      fontWeightLight: 800,
+      fontWeightRegular: 900,
       fontWeightMedium: 800,
     },
   });
 
   const [items, setItems] = useState([]);
   const [active, setActive] = useState(1);
-  const [category, setCategory] = useState("business");
+  const [category, setCategory] = useState("general");
 
   useEffect(() => {
     fetch(
@@ -39,10 +39,10 @@ const Dashboard = () => {
         <div className="twitter">
           <a
             className="twitter-timeline"
-            data-theme="dark"
             href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
-            data-width="385"
-            data-height="1415"
+            data-width="350"
+            data-height="1530"
+            data-chrome="transparent"
           >
             Tweets by Newsquawk
           </a>{" "}
@@ -59,12 +59,25 @@ const Dashboard = () => {
         </div>
 
         <div className="App">
-          <NewsGrid items={items} />
           <Menu
             active={active}
             setActive={setActive}
             setCategory={setCategory}
           />
+          <NewsGrid items={items} />
+        </div>
+        <div className="dashboard-page-footer">
+          <div className="dashboard-media-footer">
+            <a href="https://twitter.com/" alt="twitter">
+              <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
+            </a>
+            <a href="https://facebook.com/" alt="Facebook">
+              <FontAwesomeIcon icon="fa-brands fa-facebook" /> |
+            </a>
+            <a href="https://instagram.com/" alt="Instagram">
+              <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
+            </a>
+          </div>
         </div>
       </div>
     </ThemeProvider>
