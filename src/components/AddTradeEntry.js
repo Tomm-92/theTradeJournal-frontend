@@ -4,7 +4,6 @@ import Alert from "./Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/addTrades1.css";
 import icon from "../images/iconblack.png";
-
 const AddTradeEntry = ({ userID }) => {
   const initialState = {
     fields: {
@@ -24,16 +23,13 @@ const AddTradeEntry = ({ userID }) => {
       isSuccess: false,
     },
   };
-
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
-
   useEffect(() => {
     setTimeout(() => {
       setAlert({ message: "" });
     }, 30000);
   });
-
   const handleAddTrade = (event) => {
     event.preventDefault();
     console.log("User ID:", userID);
@@ -44,7 +40,7 @@ const AddTradeEntry = ({ userID }) => {
       })
       .then(() => {
         setAlert({
-          message: "Trade Added",
+          message: "Trade Added!",
           isSuccess: true,
         });
         setFields(initialState.fields);
@@ -56,19 +52,27 @@ const AddTradeEntry = ({ userID }) => {
         })
       );
   };
-
-  //move this to a requests folder and can then test the individual function
-
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
-
+  const [data, setData] = useState();
+  const handleUpload = (e) => {
+    setData(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+  const uploadToServer = () => {
+    return axios.post(
+      "http://localhost:3000/tradehistory/csv/upload",
+      data,
+      {}
+    );
+  };
   return (
     <div className="add-trades-wrapper">
       <div className="add-trades-container">
         <img className="icon" src={icon} alt="app-logo" />
+        <Alert message={alert.message} success={alert.isSuccess} />
         <form className="form" onSubmit={handleAddTrade}>
-          <Alert message={alert.message} success={alert.isSuccess} />
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
             <select
@@ -214,12 +218,23 @@ const AddTradeEntry = ({ userID }) => {
               onChange={handleFieldChange}
             />
           </label>
-          <button type="submit" className="add-trade__submit-button">
+          <button
+            type="submit"
+            className="add-trade__submit-button"
+            id="button1"
+          >
             {" "}
             Submit
           </button>
+          <div>
+            <label className="label11">
+              <input type={"file"} accept={".csv"} onChange={handleUpload} />
+            </label>
+            <button onClick={uploadToServer} id="button2">
+              Upload
+            </button>
+          </div>
         </form>
-
         <div>
           <a href="https://twitter.com/" alt="twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" /> |
@@ -235,5 +250,4 @@ const AddTradeEntry = ({ userID }) => {
     </div>
   );
 };
-
 export default AddTradeEntry;
