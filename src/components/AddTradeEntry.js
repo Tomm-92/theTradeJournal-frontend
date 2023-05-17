@@ -70,8 +70,13 @@ const AddTradeEntry = ({ userID }) => {
   };
 
   const uploadToServer = () => {
+    const formData = new FormData();
+    formData.append("file", data);
+    //const body = { form: formData, firebase_uid: userID };
     return axios
-      .post("http://localhost:3000/tradehistory/csv/upload", data, {})
+      .post("http://localhost:3000/tradehistory/csv/upload", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then((response) => {
         console.log(response);
       })
