@@ -4,14 +4,15 @@ import { getAuth } from "firebase/auth";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/mytrades.css";
-import icon from "../images/iconblack.png";
+import Filter from "./filter";
 
 const MyTrades = () => {
   const [editingTradeId, setEditingTradeId] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [firebaseUid, setFirebaseUid] = useState("");
   const [updatedFields, setUpdatedFields] = useState({});
-  const [trades, setTrades] = useState("");
+  const [trades, setTrades] = useState([]);
+  const [filteredTrades, setFilteredTrades] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,25 +21,38 @@ const MyTrades = () => {
 
     if (user) {
       const { uid } = user;
+      //console.log("User:", user);
       setFirebaseUid(uid);
+      console.log("Firebase UID:", uid);
       getTrades(uid);
     }
   }, [location]);
 
   const getTrades = async (firebaseUid) => {
+    // console.log("heree:", firebaseUid);
     const response = await Axios.get("http://localhost:3000/tradehistory", {
       params: {
         firebase_uid: firebaseUid,
       },
     });
-
+    console.log("API response:", response.data);
     setTrades(
       response.data.sort(
         (tradeA, tradeB) =>
           new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
       )
     );
+    setFilteredTrades(
+      response.data.sort(
+        (tradeA, tradeB) =>
+          new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
+      )
+    );
   };
+
+  // useEffect(() => {
+  //   getTrades(firebaseUid);
+  // }, [location]);
 
   if (!trades || trades.length === 0) {
     return null;
@@ -90,6 +104,7 @@ const MyTrades = () => {
             new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
         );
       setTrades(updatedTrades);
+      setFilteredTrades(updatedTrades);
 
       console.log("Trade updated successfully");
     } catch (error) {
@@ -104,6 +119,7 @@ const MyTrades = () => {
       await Axios.delete(`http://localhost:3000/tradehistory/${tradeId}`);
       const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
       setTrades(updatedTrades);
+      setFilteredTrades(updatedTrades);
 
       console.log("Trade deleted successfully");
     } catch (error) {
@@ -113,8 +129,13 @@ const MyTrades = () => {
 
   return (
     <>
+      <Filter
+        showFilteredTrades={setFilteredTrades}
+        userId={firebaseUid}
+        trades={trades}
+      />
       <div className="card-parent">
-        {trades.map((trade) => (
+        {filteredTrades.map((trade) => (
           <div className="card" key={trade.id}>
             <div className="card-body">
               {editingTradeId === trade.id ? (
@@ -194,7 +215,7 @@ const MyTrades = () => {
                     }
                   />
                   <label htmlFor={`observations_${trade.id}`}>
-                    Observation:
+                    Observations:
                   </label>
                   <textarea
                     id={`observations_${trade.id}`}
@@ -216,10 +237,9 @@ const MyTrades = () => {
               ) : (
                 <>
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
-                  <img className="icon-mytrades" src={icon} alt="app-logo" />
                   <p className="card-text">
                     <span className="label-currency">
-                      Currency Pair/Crypto:{"  "}
+                      Currency Pair/Crypto:{" "}
                     </span>
                     <span className="card-title">{trade.currency_crypto}</span>{" "}
                     | <span className="label-outcome">Trade Outcome: </span>
@@ -227,21 +247,19 @@ const MyTrades = () => {
                       className={`trade-outcome-${trade.trade_outcome.toLowerCase()}`}
                     >
                       {trade.trade_outcome}
-                    </span>{"  "}
+                    </span>{" "}
                     | <span className="label">Trade Open Date: </span>
                     <span className="trade-open-date">
                       {trade.trade_open_date}
-                    </span>{"  "}
+                    </span>{" "}
                     | <span className="label">Trade Close Date: </span>
                     <span className="trade-close-date">
                       {trade.trade_close_date}
-                    </span>{"  "}
-                    | <br></br> 
-                    <span className="label">Entry Price: </span>
+                    </span>{" "}
+                    | <span className="label">Entry Price: </span>
                     <span className="entry-price">
                       {trade.entry_price}
-                    </span> | {" "} 
-                    <span className="label">Exit Price: </span>
+                    </span> | <span className="label">Exit Price: </span>
                     <span className="exit-price">{trade.exit_price}</span>
                   </p>
                   <p className="card-text">
