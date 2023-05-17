@@ -57,10 +57,32 @@ const AddTradeEntry = ({ userID }) => {
       );
   };
 
-  //move this to a requests folder and can then test the individual function
-
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const [data, setData] = useState();
+
+  const handleUpload = (e) => {
+    setData(e.target.files[0]);
+    console.log(e.target.files);
+    console.log(e.target.files[0]);
+  };
+
+  const uploadToServer = () => {
+    const formData = new FormData();
+    formData.append("file", data);
+    //const body = { form: formData, firebase_uid: userID };
+    return axios
+      .post("http://localhost:3000/tradehistory/csv/upload", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -69,6 +91,15 @@ const AddTradeEntry = ({ userID }) => {
         <img className="icon" src={icon} alt="app-logo" />
         <form className="form" onSubmit={handleAddTrade}>
           <Alert message={alert.message} success={alert.isSuccess} />
+          <div>
+            <label className="btn btn-default">
+              <input type={"file"} accept={".csv"} onChange={handleUpload} />
+            </label>
+
+            <button className="btn btn-success" onClick={uploadToServer}>
+              Upload
+            </button>
+          </div>
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
             <select
