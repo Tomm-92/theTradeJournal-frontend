@@ -1,0 +1,14 @@
+.filter-container {
+  display: flex;
+  justify-content: start;
+}
+
+.filter-container select {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: bold;
+  /*font-size: large;*/
+  color: #22c489;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/filter.css";
 
 const Filter = ({ showFilteredTrades, userId, trades }) => {
   const filteredList = [
@@ -37,7 +38,7 @@ const Filter = ({ showFilteredTrades, userId, trades }) => {
     }
   };
   return (
-    <div>
+    <div className="filter-container">
       <select onChange={handleDropdownValue}>
         <option></option>
         {trades
