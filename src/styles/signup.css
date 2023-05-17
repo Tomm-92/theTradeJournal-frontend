@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .sign-up-page-wrapper h2:hover {
@@ -25,7 +25,7 @@ p:hover {
 .sign-up-container {
   max-width: 500px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 30px 40px;
   background-color: #f4f4f4;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -43,7 +43,7 @@ p:hover {
 
 .sign-up-container form label {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 15px;
 }
 
@@ -64,7 +64,6 @@ p:hover {
   border-radius: 7px;
   cursor: pointer;
   font-size: 18px;
-  margin-top: 10px;
 }
 
 .sign-up-container form button.signup-button:hover {
@@ -73,7 +72,7 @@ p:hover {
 
 .sign-up-container a {
   display: block;
-  margin-top: 16px;
+  /* margin-top: 16px; */
   text-align: center;
   font-weight: bold;
   color: #31c48d;
@@ -85,7 +84,7 @@ p:hover {
   width: 400px;
   height: auto;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .sign-up-container div {
