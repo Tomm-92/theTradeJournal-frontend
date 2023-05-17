@@ -12,8 +12,7 @@ const MyTrades = () => {
   const [firebaseUid, setFirebaseUid] = useState("");
   const [updatedFields, setUpdatedFields] = useState({});
   const [trades, setTrades] = useState([]);
-  const [filteredTrades, setFilteredTrades] = useState(trades);
-  const [tradesToDisplay, setTradesToDisplay] = useState(trades);
+  const [filteredTrades, setFilteredTrades] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,11 +28,6 @@ const MyTrades = () => {
     }
   }, [location]);
 
-  useEffect(() => {
-    setTradesToDisplay(filteredTrades);
-    console.log("Tradestodisplay", tradesToDisplay);
-  }, [filteredTrades, tradesToDisplay, trades]);
-
   const getTrades = async (firebaseUid) => {
     // console.log("heree:", firebaseUid);
     const response = await Axios.get("http://localhost:3000/tradehistory", {
@@ -43,6 +37,12 @@ const MyTrades = () => {
     });
     console.log("API response:", response.data);
     setTrades(
+      response.data.sort(
+        (tradeA, tradeB) =>
+          new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
+      )
+    );
+    setFilteredTrades(
       response.data.sort(
         (tradeA, tradeB) =>
           new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
@@ -104,6 +104,7 @@ const MyTrades = () => {
             new Date(tradeB.createdAt) - new Date(tradeA.createdAt)
         );
       setTrades(updatedTrades);
+      setFilteredTrades(updatedTrades);
 
       console.log("Trade updated successfully");
     } catch (error) {
@@ -118,6 +119,7 @@ const MyTrades = () => {
       await Axios.delete(`http://localhost:3000/tradehistory/${tradeId}`);
       const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
       setTrades(updatedTrades);
+      setFilteredTrades(updatedTrades);
 
       console.log("Trade deleted successfully");
     } catch (error) {
@@ -127,7 +129,11 @@ const MyTrades = () => {
 
   return (
     <>
-      <Filter showFilteredTrades={setFilteredTrades} userId={firebaseUid} />
+      <Filter
+        showFilteredTrades={setFilteredTrades}
+        userId={firebaseUid}
+        trades={trades}
+      />
       <div className="card-parent">
         {filteredTrades.map((trade) => (
           <div className="card" key={trade.id}>

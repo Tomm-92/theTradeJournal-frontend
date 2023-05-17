@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-const Filter = ({ showFilteredTrades, userId }) => {
-  const [currencies, setCurrencies] = useState([]);
+const Filter = ({ showFilteredTrades, userId, trades }) => {
+  //const [currencies, setCurrencies] = useState([]);
 
-  const getFilteredTrades = async () => {
+  /*const getFilteredTrades = async () => {
     const response = await Axios.get(
       `http://localhost:3000/tradeHistory?firebase_uid=${userId}`
     );
     setCurrencies(response.data);
-  };
+  };*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     getFilteredTrades();
-  }, []);
+  }, []);*/
 
   const filteredList = [
-    ...new Set(currencies.map((currency) => currency.currency_crypto)),
+    ...new Set(trades.map((currency) => currency.currency_crypto)),
   ];
 
   const handleDropdownValue = (e) => {
@@ -39,14 +39,14 @@ const Filter = ({ showFilteredTrades, userId }) => {
       case "Dogecoin":
       case "Polygon":
       case "Solana":
-        newArray = currencies.filter(function (currency) {
+        newArray = trades.filter(function (currency) {
           return currency.currency_crypto === e.target.value;
         });
         console.log("newArray", newArray);
         showFilteredTrades(newArray);
         break;
       default:
-        showFilteredTrades(currencies);
+        showFilteredTrades(trades);
         break;
     }
   };
@@ -54,7 +54,7 @@ const Filter = ({ showFilteredTrades, userId }) => {
     <div>
       <select onChange={handleDropdownValue}>
         <option></option>
-        {currencies
+        {trades
           ? filteredList.map((currency) => {
               return (
                 <option value={currency} key={currency}>
