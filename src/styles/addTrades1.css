@@ -24,7 +24,7 @@
 .form {
   display: grid;
   grid-template-columns: 2fr;
-  grid-template-rows: 11;
+  grid-template-rows: 12;
 }
 
 .add-trades-container input {
@@ -46,6 +46,7 @@
 .add-trades-container label {
   display: block;
   padding: 5px;
+  max-width: 400px;
 }
 
 .label1 {
@@ -81,16 +82,6 @@
 .label4 {
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 5;
-  font-size: large;
-  color: #22c489;
-  font-weight: bold;
-}
-
-.label5 {
-  grid-column-start: 1;
-  grid-column-end: 2;
   grid-row-start: 5;
   grid-row-end: 6;
   font-size: large;
@@ -98,17 +89,7 @@
   font-weight: bold;
 }
 
-.label6 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 6;
-  grid-row-end: 7;
-  font-size: large;
-  color: #22c489;
-  font-weight: bold;
-}
-
-.label7 {
+.label5 {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 7;
@@ -118,7 +99,17 @@
   font-weight: bold;
 }
 
-.label8 {
+.label6 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 9;
+  grid-row-end: 10;
+  font-size: large;
+  color: #22c489;
+  font-weight: bold;
+}
+
+.label7 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -129,7 +120,7 @@
   margin-left: 15px;
 }
 
-.label9 {
+.label8 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -140,55 +131,61 @@
   margin-left: 15px;
 }
 
-.label10 {
+.label9 {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 3;
-  grid-row-end: 6;
+  grid-row-end: 4;
   font-size: large;
   color: #22c489;
   font-weight: bold;
   margin-left: 15px;
 }
 
-.label11 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 9;
-  grid-row-end: 10;
+.label10 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 8;
   font-size: large;
   color: #22c489;
   font-weight: bold;
-  border: red solid 1px;
+  margin-left: 15px;
+}
+
+.upload-csv-button {
+  display: flex;
+}
+
+.choose-file {
+  max-width: 210px;
 }
 
 .label12 {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row-start: 6;
-  grid-row-end: 7;
+  grid-row-start: 9;
+  grid-row-end: 10;
   font-size: large;
   color: #22c489;
   font-weight: bold;
   margin-left: 15px;
-  border: red solid 1px;
+  margin-top: 5px;
 }
-
-.label13 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 8;
-  grid-row-end: 9;
-  font-size: large;
-  color: #22c489;
+.label14 {
+  padding: 5px;
+  background-color: #31c48d;
+  color: #ffffff;
+  border-radius: 20px;
+  margin-left: 5px;
+  color: white;
+  width: 20%;
+  border: 0;
   font-weight: bold;
-  margin-left: 15px;
-  border: red solid 1px;
 }
 
-.add-trades-container button {
-  width: 75%;
-  height: 50%;
+.add-trade__submit-button {
+  width: 100%;
   padding: 10px;
   background-color: #31c48d;
   color: #ffffff;
@@ -198,6 +195,10 @@
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 20px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 11;
+  grid-row-end: 12;
 }
 
 .add-trades-container a {

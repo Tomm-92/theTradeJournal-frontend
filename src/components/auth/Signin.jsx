@@ -44,7 +44,7 @@ const SignIn = () => {
               required
               minLength="10"
               maxLength="50"
-              placeholder="Password (e.g., Example123!)"
+              placeholder="Password (e.g. Example123!)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></input>
