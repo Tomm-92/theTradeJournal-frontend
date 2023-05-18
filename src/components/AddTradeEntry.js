@@ -32,7 +32,7 @@ const AddTradeEntry = ({ userID }) => {
     setTimeout(() => {
       setAlert({ message: "" });
     }, 30000);
-  });
+  }, []);
 
   const handleAddTrade = (event) => {
     event.preventDefault();
@@ -77,19 +77,25 @@ const AddTradeEntry = ({ userID }) => {
       .post("http://localhost:3000/tradehistory/csv/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        setAlert({
+          message: "File Sucessfully Uploaded!",
+          isSuccess: true,
+        });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() =>
+        setAlert({
+          message: "Server error. Please come back later",
+          isSuccess: false,
+        })
+      );
   };
 
   return (
     <div className="add-trades-wrapper">
       <div className="add-trades-container">
         <img className="icon" src={icon} alt="app-logo" />
-        <Alert message={alert.message} success={alert.isSuccess} />
+        <Alert message={alert.message} success={alert.isSuccess} />{" "}
         <form className="form" onSubmit={handleAddTrade}>
           <label className="label1" htmlFor="currency_crypto">
             Currency/Crypto
@@ -256,7 +262,6 @@ const AddTradeEntry = ({ userID }) => {
             Submit
           </button>
         </form>
-
         <div>
           <a href="https://twitter.com/" alt="twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" /> |

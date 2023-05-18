@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.icon {
+  width: 100px;
+}
+
 .add-trades-container {
   min-width: 750px;
   margin: 0 auto;
@@ -16,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px; /* Adjust the height as needed */
+  min-height: 725px; /* Adjust the height as needed */
   float: left;
   width: 50%;
 }

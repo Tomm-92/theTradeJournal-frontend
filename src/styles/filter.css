@@ -1,6 +1,6 @@
 .filter-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .filter-container select {
@@ -9,6 +9,5 @@
   border-radius: 7px;
   font-size: 14px;
   font-weight: bold;
-  /*font-size: large;*/
   color: #22c489;
 }
