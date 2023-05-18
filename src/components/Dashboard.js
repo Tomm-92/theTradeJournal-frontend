@@ -23,11 +23,16 @@ const Dashboard = () => {
 
   const [items, setItems] = useState([]);
   const [active, setActive] = useState(1);
-  const [category, setCategory] = useState("general");
+  const [category, setCategory] = useState("news");
 
   useEffect(() => {
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&category=${category}&pagesize=9&apikey=021baff830cb4c8fa2c688eefdd78b46`
+      `https://api.newscatcherapi.com/v2/latest_headlines?&topic=${category}&lang=en`,
+      {
+        headers: {
+          "x-api-key": "bvhmZB_l269VIiul_TFZ87TAtnIjeqQy4hsL1LOt6pc",
+        },
+      }
     )
       .then((res) => res.json())
       .then((data) => setItems(data.articles));
