@@ -1,11 +1,11 @@
 const Menu = ({ active, setActive, setCategory }) => {
   const links = [
-    { id: 1, name: "General", value: "general" },
-    { id: 2, name: "Business", value: "business" },
-    { id: 4, name: "Health", value: "health" },
+    { id: 1, name: "General", value: "news" },
+    { id: 2, name: "Business", value: "economics" },
+    { id: 4, name: "Finance", value: "finance" },
     { id: 5, name: "Science", value: "science" },
-    { id: 6, name: "Sports", value: "sports" },
-    { id: 7, name: "Technology", value: "technology" },
+    { id: 6, name: "Sports", value: "sport" },
+    { id: 7, name: "Technology", value: "tech" },
   ];
 
   const onClick = (id, value) => {

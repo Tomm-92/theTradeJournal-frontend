@@ -124,7 +124,7 @@
 .article {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   min-width: 20em;
-  min-height: 16em;
+  height: 21em;
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
@@ -167,13 +167,17 @@
   height: 15em;
 }
 
+.article-description {
+  color: lightgrey;
+}
+
 article:hover .article-image img {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
 .article p {
   line-height: 25px;
-  color: #555;
+  color: gray;
 }
 
 .image-wrapper {

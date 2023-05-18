@@ -18,7 +18,7 @@ const NewsItem = ({ item }) => {
               alt={item._id}
             />
           </div>
-          <span>{item.title}</span>
+          <span></span>
         </div>
         <div className="aricle-title">
           <h3>{item.title}</h3>

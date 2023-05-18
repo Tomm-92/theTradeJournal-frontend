@@ -27,10 +27,10 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.newscatcherapi.com/v2/latest_headlines?&topic=${category}&lang=en`,
+      `https://api.newscatcherapi.com/v2/latest_headlines?&topic=${category}&lang=en&page_size=9&countries=uk,us`,
       {
         headers: {
-          "x-api-key": "bvhmZB_l269VIiul_TFZ87TAtnIjeqQy4hsL1LOt6pc",
+          "x-api-key": "LLvBrd07nWqvL7YnNdY2NvGSj4jr9lUUCyAuD0mkH6M",
         },
       }
     )
@@ -46,7 +46,7 @@ const Dashboard = () => {
             className="twitter-timeline"
             href="https://twitter.com/Newsquawk?ref_src=twsrc%5Etfw"
             data-width="350"
-            data-height="1530"
+            data-height="1770"
             data-chrome="transparent"
           >
             Tweets by Newsquawk
