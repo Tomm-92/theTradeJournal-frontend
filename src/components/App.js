@@ -48,7 +48,7 @@ const App = () => {
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<MyTrades />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/sign-up" element={<AddTradeEntry />} />
         <Route
           path="/add-trade-entry"

@@ -4,8 +4,6 @@ const NewsItem = ({ item }) => {
   const date = item.publishedAt;
   const formatDate = date.replace("T", "");
   const formatTime = formatDate.replace("Z", "");
-  console.log(item.url);
-  console.log(item);
 
   return (
     <a href={item.url} className="article">
