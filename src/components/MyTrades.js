@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import icon from "../images/iconblack.png";
 import "../styles/mytrades.css";
 import Filter from "./filter";
 
@@ -237,6 +238,7 @@ const MyTrades = () => {
               ) : (
                 <>
                   <h6 className="card-subtitle">{trade.trade_data_open}</h6>
+                  <img className="icon-mytrades" src={icon} alt="app-logo" />
                   <p className="card-text">
                     <span className="label-currency">
                       Currency Pair/Crypto:{" "}
