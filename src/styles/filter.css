@@ -1,6 +1,6 @@
 .filter-container {
   display: flex;
-  justify-content: start;
+  justify-content: end;
 }
 
 .filter-container select {
