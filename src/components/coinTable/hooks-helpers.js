@@ -17,7 +17,9 @@ function useCoinMarket() {
   useEffect(() => {
     async function init() {
       try {
-        const res = await fetch("http://localhost:3000/api");
+        const res = await fetch(
+          "https://thetradejournal-backend.onrender.com/api"
+        );
         const data = await res.json();
         updateState(data);
       } catch (err) {

@@ -28,11 +28,14 @@ const MyTrades = () => {
   }, [location]);
 
   const getTrades = async (firebaseUid) => {
-    const response = await Axios.get("http://localhost:3000/tradehistory", {
-      params: {
-        firebase_uid: firebaseUid,
-      },
-    });
+    const response = await Axios.get(
+      "https://thetradejournal-backend.onrender.com/tradehistory",
+      {
+        params: {
+          firebase_uid: firebaseUid,
+        },
+      }
+    );
     setTrades(
       response.data.sort(
         (tradeA, tradeB) =>
@@ -80,7 +83,7 @@ const MyTrades = () => {
   const handleSaveUpdate = async (tradeId, updatedData) => {
     try {
       const { data: updatedTrade } = await Axios.patch(
-        `http://localhost:3000/tradeHistory/${tradeId}`,
+        `https://thetradejournal-backend.onrender.com/tradeHistory/${tradeId}`,
         updatedData
       );
 
@@ -97,16 +100,16 @@ const MyTrades = () => {
         );
       setTrades(updatedTrades);
       setFilteredTrades(updatedTrades);
-
     } catch (error) {
       console.log("Error updating trade:", error);
-
     }
   };
 
   const handleDelete = async (tradeId) => {
     try {
-      await Axios.delete(`http://localhost:3000/tradehistory/${tradeId}`);
+      await Axios.delete(
+        `https://thetradejournal-backend.onrender.com/tradehistory/${tradeId}`
+      );
       const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
       setTrades(updatedTrades);
       setFilteredTrades(updatedTrades);
