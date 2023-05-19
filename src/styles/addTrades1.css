@@ -45,6 +45,8 @@
   border: 1px solid #cccccc;
   border-radius: 7px;
   font-size: 14px;
+  color: #2d2727;
+  font-family: "Roboto", sans-serif;
 }
 
 .add-trades-container label {

@@ -35,7 +35,6 @@ const CoinTableBody = memo(({ rowsPerPage, page, setDataLength }) => {
   useEffect(() => {
     setDataLength(data.length);
   });
-  console.log("body");
   return (
     <TableBody>
       {isLoading ? (

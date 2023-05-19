@@ -1,3 +1,7 @@
+# Command Shift Final Project 
+
+https://newscatcherapi.com/ - is being used to power our API calls for news data
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
