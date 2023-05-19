@@ -28,7 +28,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password).then(
       (userCredential) => {
         axios
-          .post("http://localhost:3000/users/", {
+          .post("https://thetradejournal-backend.onrender.com/users/", {
             email_address: `${userCredential.user.email}`,
             firebase_uid: `${userCredential.user.uid}`,
             first_name: fields.first_name,

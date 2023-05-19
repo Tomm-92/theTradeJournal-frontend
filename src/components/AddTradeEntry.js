@@ -38,7 +38,7 @@ const AddTradeEntry = ({ userID }) => {
     event.preventDefault();
     console.log("User ID:", userID);
     axios
-      .post("http://localhost:3000/tradeHistory/", {
+      .post("https://thetradejournal-backend.onrender.com/tradehistory", {
         ...fields,
         firebase_uid: userID,
       })
@@ -74,9 +74,13 @@ const AddTradeEntry = ({ userID }) => {
     formData.append("file", data);
     //const body = { form: formData, firebase_uid: userID };
     return axios
-      .post("http://localhost:3000/tradehistory/csv/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
+      .post(
+        "https://thetradejournal-backend.onrender.com/tradehistory/csv/upload",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      )
       .then(() => {
         setAlert({
           message: "File Sucessfully Uploaded!",
