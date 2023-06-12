@@ -30,7 +30,7 @@ const Dashboard = () => {
       `https://api.newscatcherapi.com/v2/latest_headlines?&topic=${category}&lang=en&page_size=9&countries=uk,us`,
       {
         headers: {
-          "x-api-key": process.env.REACT_APP_NEWSCATCHER_API,
+          "x-api-key": process.env.REACT_APP_NEWSCATCHER_API_KEY,
         },
       }
     )
