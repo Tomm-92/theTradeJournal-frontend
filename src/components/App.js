@@ -13,6 +13,7 @@ import AddTradeEntry from "./AddTradeEntry";
 import MyTrades from "./MyTrades";
 import SignUp from "../firebase/auth/signup";
 import SignIn from "../firebase/auth/signin";
+import ResetPassword from "../firebase/auth/reset";
 import Dashboard from "./Dashboard";
 import { auth } from "../firebase/firebase";
 
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/my-trades" element={<SignIn />} />
           <Route path="/dashboard" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Routes>
       </Router>
     );
