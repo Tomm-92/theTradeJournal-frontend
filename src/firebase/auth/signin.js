@@ -1,31 +1,32 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import { useUserContext } from "../../context/userContext";
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
 import logo from "../../images/the-trade-journal-black.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../styles/signin.css";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const emailRef = useRef();
+  const psdRef = useRef();
 
-  const signIn = (e) => {
+  const { signInUser, forgotPassword } = useUserContext();
+
+  const onSubmit = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        console.log(userCredential.user.uid);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const email = emailRef.current.value;
+    const password = psdRef.current.value;
+    if (email && password) signInUser(email, password);
+  };
+
+  const forgotPasswordHandler = () => {
+    const email = emailRef.current.value;
+    if (email) forgotPassword(email).then(() => (emailRef.current.value = ""));
   };
 
   return (
     <div className="sign-in-page-wrapper">
       <div className="sign-in-container">
-        <form onSubmit={signIn}>
+        <form onSubmit={onSubmit}>
           <img className="sign-in-image" src={logo} alt="app-logo" />
           <label className="label">
             Email Address
@@ -33,8 +34,7 @@ const SignIn = () => {
               type="email"
               required
               placeholder="user@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              ref={emailRef}
             ></input>
           </label>
           <label className="label">
@@ -45,18 +45,21 @@ const SignIn = () => {
               minLength="10"
               maxLength="50"
               placeholder="Password (e.g. Example123!)"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              ref={psdRef}
             ></input>
           </label>
           <button type="submit">Log In</button>
         </form>
         <div className="not-registered">
           <Link to="/sign-up">
-            <h2>Not registered?</h2>
-            <p> Sign up here </p>
+            <h2>Sign up here </h2>
           </Link>
-        </div>
+          <p onClick={forgotPasswordHandler}>
+            {" "}
+            <h2> Forgot Password? </h2>{" "}
+          </p>
+        </div>{" "}
+        <br></br>
         <div className="social-icons">
           <a href="https://twitter.com/" alt="twitter">
             <FontAwesomeIcon icon="fa-brands fa-twitter" /> |

@@ -11,10 +11,10 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "./NavBar";
 import AddTradeEntry from "./AddTradeEntry";
 import MyTrades from "./MyTrades";
-import Signin from "./auth/Signin.jsx";
-import SignUp from "./auth/SignUp.jsx";
+import SignUp from "../firebase/auth/signup";
+import SignIn from "../firebase/auth/signin";
 import Dashboard from "./Dashboard";
-import { auth } from "../firebase";
+import { auth } from "../firebase/firebase";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -35,10 +35,10 @@ const App = () => {
     return (
       <Router>
         <Routes>
-          <Route path="/" element={<Signin />} />
-          <Route path="/add-trade-entry" element={<Signin alert={alert} />} />
-          <Route path="/my-trades" element={<Signin />} />
-          <Route path="/dashboard" element={<Signin />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="/add-trade-entry" element={<SignIn alert={alert} />} />
+          <Route path="/my-trades" element={<SignIn />} />
+          <Route path="/dashboard" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </Router>

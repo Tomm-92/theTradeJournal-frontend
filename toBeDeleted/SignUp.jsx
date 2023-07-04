@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+/* import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import logo from "../../images/the-trade-journal-black.png";
@@ -130,4 +130,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUp; */
