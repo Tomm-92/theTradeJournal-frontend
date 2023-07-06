@@ -71,6 +71,4 @@ const SignIn = () => {
   );
 };
 
-//<p onClick={forgotPasswordHandler}>
-
 export default SignIn;
