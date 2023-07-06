@@ -9,18 +9,13 @@ const SignIn = () => {
   const emailRef = useRef();
   const psdRef = useRef();
 
-  const { signInUser, forgotPassword } = useUserContext();
+  const { signInUser } = useUserContext();
 
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = psdRef.current.value;
     if (email && password) signInUser(email, password);
-  };
-
-  const forgotPasswordHandler = () => {
-    const email = emailRef.current.value;
-    if (email) forgotPassword(email).then(() => (emailRef.current.value = ""));
   };
 
   return (
@@ -54,10 +49,10 @@ const SignIn = () => {
           <Link to="/sign-up">
             <h2>Sign up here </h2>
           </Link>
-          <p onClick={forgotPasswordHandler}>
+          <Link to="/reset-password">
             {" "}
             <h2> Forgot Password? </h2>{" "}
-          </p>
+          </Link>
         </div>{" "}
         <br></br>
         <div className="social-icons">
@@ -75,5 +70,7 @@ const SignIn = () => {
     </div>
   );
 };
+
+//<p onClick={forgotPasswordHandler}>
 
 export default SignIn;

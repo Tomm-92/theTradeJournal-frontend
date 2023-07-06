@@ -41,7 +41,10 @@ const App = () => {
           <Route path="/my-trades" element={<SignIn />} />
           <Route path="/dashboard" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route
+            path="/reset-password"
+            element={<ResetPassword alert={alert} />}
+          />
         </Routes>
       </Router>
     );

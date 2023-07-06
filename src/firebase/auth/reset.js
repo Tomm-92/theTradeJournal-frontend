@@ -1,32 +1,34 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useUserContext } from "../../context/userContext";
 import { Link } from "react-router-dom";
 import logo from "../../images/the-trade-journal-black.png";
+import Alert from "../../components/Alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../styles/signin.css";
 
 const ResetPassword = () => {
   const emailRef = useRef();
-  const psdRef = useRef();
+  const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  const { forgotPassword } = useUserContext();
 
-  const { signInUser, forgotPassword } = useUserContext();
-
-  const onSubmit = (e) => {
+  const passwordReset = (e) => {
+    const email = emailRef.current.value;
     e.preventDefault();
-    const email = emailRef.current.value;
-    const password = psdRef.current.value;
-    if (email && password) signInUser(email, password);
-  };
-
-  const forgotPasswordHandler = () => {
-    const email = emailRef.current.value;
-    if (email) forgotPassword(email).then(() => (emailRef.current.value = ""));
+    if (email)
+      forgotPassword(email)
+        .then(() => (emailRef.current.value = ""))
+        .then(() => {
+          setAlert({
+            message: "Password reset email sent!",
+            isSuccess: true,
+          });
+        });
   };
 
   return (
     <div className="sign-in-page-wrapper">
       <div className="sign-in-container">
-        <form onSubmit={onSubmit}>
+        <form onSubmit={passwordReset}>
           <img className="sign-in-image" src={logo} alt="app-logo" />
           <label className="label">
             Email Address
@@ -40,7 +42,7 @@ const ResetPassword = () => {
           <button type="submit">Reset your password</button>
         </form>
         <div className="not-registered">
-          <Link to="/sign-in">
+          <Link to="/">
             <h2>Sign in </h2>
           </Link>
         </div>
@@ -55,6 +57,8 @@ const ResetPassword = () => {
             <FontAwesomeIcon icon="fa-brands fa-square-instagram fa-10x" />
           </a>
         </div>
+        <br></br>
+        <Alert message={alert.message} success={alert.isSuccess} />
       </div>
     </div>
   );
