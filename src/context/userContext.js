@@ -8,6 +8,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
+import axios from "axios";
 
 const UserContext = createContext({});
 
@@ -31,6 +32,18 @@ export const UserContextProvider = ({ children }) => {
   const registerUser = (email, first_name, last_name, password) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        axios
+          .post("https://thetradejournal-backend.onrender.com/users/", {
+            email_address: `${userCredential.user.email}`,
+            firebase_uid: `${userCredential.user.uid}`,
+            first_name: first_name,
+            last_name: last_name,
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
       .then(() => {
         return updateProfile(auth.currentUser, {
           displayName: first_name,
