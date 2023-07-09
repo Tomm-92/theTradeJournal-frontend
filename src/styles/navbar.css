@@ -55,4 +55,16 @@ body {
 .navbar .right-content {
   display: flex;
   align-items: center;
+  padding: 6px;
+  background-color: #087b5b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: large;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.navbar .right-content:hover {
+  background-color: #ff7487;
 }
