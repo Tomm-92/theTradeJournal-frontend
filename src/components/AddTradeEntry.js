@@ -36,7 +36,7 @@ const AddTradeEntry = ({ userID }) => {
 
   const handleAddTrade = (event) => {
     event.preventDefault();
-    console.log("User ID:", userID);
+
     axios
       .post("https://thetradejournal-backend.onrender.com/tradehistory", {
         ...fields,
