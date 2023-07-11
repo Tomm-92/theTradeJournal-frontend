@@ -29,10 +29,14 @@ const MyTrades = () => {
 
   const getTrades = async (firebaseUid) => {
     const response = await Axios.get(
-      "https://thetradejournal-backend.onrender.com/tradehistory",
+      //"https://thetradejournal-backend.onrender.com/tradehistory",
+      "http://localhost:3000/tradehistory/",
       {
         params: {
           firebase_uid: firebaseUid,
+        },
+        headers: {
+          authorization: process.env.TRADES_API_KEY,
         },
       }
     );
@@ -49,6 +53,10 @@ const MyTrades = () => {
       )
     );
   };
+
+  console.log(process.env.TRADES_API_KEY);
+
+  console.log(process.env.REACT_APP_NEWSCATCHER_API_KEY);
 
   if (!trades || trades.length === 0) {
     return null;
