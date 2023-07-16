@@ -38,8 +38,6 @@ const Dashboard = () => {
       .then((data) => setItems(data.articles));
   }, [category]);
 
-  console.log(process.env.REACT_APP_NEWSCATCHER_API_KEY);
-
   return (
     <ThemeProvider theme={theme}>
       <div className="page">
