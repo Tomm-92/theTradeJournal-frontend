@@ -36,7 +36,7 @@ const MyTrades = () => {
           firebase_uid: firebaseUid,
         },
         headers: {
-          authorization: process.env.TRADES_API_KEY,
+          authorization: process.env.REACT_APP_TRADES_API_KEY,
         },
       }
     );
@@ -53,10 +53,6 @@ const MyTrades = () => {
       )
     );
   };
-
-  console.log(process.env.TRADES_API_KEY);
-
-  console.log(process.env.REACT_APP_NEWSCATCHER_API_KEY);
 
   if (!trades || trades.length === 0) {
     return null;
