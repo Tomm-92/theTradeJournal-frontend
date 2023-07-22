@@ -36,12 +36,20 @@ const AddTradeEntry = ({ userID }) => {
 
   const handleAddTrade = (event) => {
     event.preventDefault();
-    console.log("User ID:", userID);
+
     axios
-      .post("https://thetradejournal-backend.onrender.com/tradehistory", {
-        ...fields,
-        firebase_uid: userID,
-      })
+      .post(
+        "https://thetradejournal-backend.onrender.com/tradehistory",
+        {
+          ...fields,
+          firebase_uid: userID,
+        },
+        {
+          headers: {
+            authorization: process.env.REACT_APP_TRADES_API_KEY,
+          },
+        }
+      )
       .then(() => {
         setAlert({
           message: "Trade Added!",
