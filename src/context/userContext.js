@@ -34,19 +34,15 @@ export const UserContextProvider = ({ children }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         axios
-          .post(
-            "http://localhost:3000/users/",
-            //"https://thetradejournal-backend.onrender.com/users/",
-            {
-              headers: {
-                "x-api-key": process.env.REACT_APP_USERS_API_KEY,
-              },
-              email_address: `${userCredential.user.email}`,
-              firebase_uid: `${userCredential.user.uid}`,
-              first_name: first_name,
-              last_name: last_name,
-            }
-          )
+          .post("https://thetradejournal-backend.onrender.com/users/", {
+            headers: {
+              "x-api-key": process.env.REACT_APP_USERS_API_KEY,
+            },
+            email_address: `${userCredential.user.email}`,
+            firebase_uid: `${userCredential.user.uid}`,
+            first_name: first_name,
+            last_name: last_name,
+          })
           .catch((error) => {
             console.log(error);
           });
