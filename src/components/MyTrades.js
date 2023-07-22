@@ -29,8 +29,7 @@ const MyTrades = () => {
 
   const getTrades = async (firebaseUid) => {
     const response = await Axios.get(
-      //"https://thetradejournal-backend.onrender.com/tradehistory",
-      "http://localhost:3000/tradehistory/",
+      "https://thetradejournal-backend.onrender.com/tradehistory",
       {
         params: {
           firebase_uid: firebaseUid,
@@ -87,8 +86,7 @@ const MyTrades = () => {
   const handleSaveUpdate = async (tradeId, updatedData) => {
     try {
       const { data: updatedTrade } = await Axios.patch(
-        //`https://thetradejournal-backend.onrender.com/tradeHistory/${tradeId}`,
-        `http://localhost:3000/tradehistory/${tradeId}`,
+        `https://thetradejournal-backend.onrender.com/tradeHistory/${tradeId}`,
         updatedData,
         {
           headers: {
@@ -118,8 +116,7 @@ const MyTrades = () => {
   const handleDelete = async (tradeId) => {
     try {
       await Axios.delete(
-        //`https://thetradejournal-backend.onrender.com/tradehistory/${tradeId}`,
-        `http://localhost:3000/tradehistory/${tradeId}`,
+        `https://thetradejournal-backend.onrender.com/tradehistory/${tradeId}`,
         {
           headers: {
             authorization: process.env.REACT_APP_TRADES_API_KEY,

@@ -39,8 +39,7 @@ const AddTradeEntry = ({ userID }) => {
 
     axios
       .post(
-        //"https://thetradejournal-backend.onrender.com/tradehistory",
-        "http://localhost:3000/tradehistory/",
+        "https://thetradejournal-backend.onrender.com/tradehistory",
         {
           ...fields,
           firebase_uid: userID,
