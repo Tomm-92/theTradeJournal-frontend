@@ -38,10 +38,19 @@ const AddTradeEntry = ({ userID }) => {
     event.preventDefault();
 
     axios
-      .post("https://thetradejournal-backend.onrender.com/tradehistory", {
-        ...fields,
-        firebase_uid: userID,
-      })
+      .post(
+        //"https://thetradejournal-backend.onrender.com/tradehistory",
+        "http://localhost:3000/tradehistory/",
+        {
+          ...fields,
+          firebase_uid: userID,
+        },
+        {
+          headers: {
+            authorization: process.env.REACT_APP_TRADES_API_KEY,
+          },
+        }
+      )
       .then(() => {
         setAlert({
           message: "Trade Added!",

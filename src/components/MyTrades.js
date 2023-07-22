@@ -87,8 +87,14 @@ const MyTrades = () => {
   const handleSaveUpdate = async (tradeId, updatedData) => {
     try {
       const { data: updatedTrade } = await Axios.patch(
-        `https://thetradejournal-backend.onrender.com/tradeHistory/${tradeId}`,
-        updatedData
+        //`https://thetradejournal-backend.onrender.com/tradeHistory/${tradeId}`,
+        `http://localhost:3000/tradehistory/${tradeId}`,
+        updatedData,
+        {
+          headers: {
+            authorization: process.env.REACT_APP_TRADES_API_KEY,
+          },
+        }
       );
 
       const updatedTrades = trades
@@ -112,7 +118,13 @@ const MyTrades = () => {
   const handleDelete = async (tradeId) => {
     try {
       await Axios.delete(
-        `https://thetradejournal-backend.onrender.com/tradehistory/${tradeId}`
+        //`https://thetradejournal-backend.onrender.com/tradehistory/${tradeId}`,
+        `http://localhost:3000/tradehistory/${tradeId}`,
+        {
+          headers: {
+            authorization: process.env.REACT_APP_TRADES_API_KEY,
+          },
+        }
       );
       const updatedTrades = trades.filter((trade) => trade.id !== tradeId);
       setTrades(updatedTrades);
